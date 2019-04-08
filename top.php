@@ -18,8 +18,7 @@ $path_parts = pathinfo($phpSelf);
         <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
 <?php
         
-// %^%^%^%^%%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
-// PATH SETUP
+//Setup Path
 
 $domain = '//';
 

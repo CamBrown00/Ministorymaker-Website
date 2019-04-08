@@ -1,0 +1,36 @@
+
+body{
+    margin: 0;
+}
+
+/* Header */
+header img{
+    float: left;
+}
+
+header h1, header h3{
+    clear: left;
+    margin: auto;
+    text-align: center;
+}
+
+/* Nav */
+nav ol{
+    width: 50%;
+    margin: 2% auto;
+}
+
+nav ol li{
+    border: 2px solid #000;
+    border-width: 0px 1px 0px 1px;
+    padding: 1px;
+    text-align: center;
+    width: 15%;
+    margin: auto;
+    display: inline-block;
+}
+
+/* Stories */
+#index .stories{
+    padding: 4%;
+}

@@ -64,9 +64,9 @@ fclose($file);
         <h2 class='heading'>Stories</h2>
         <table class='stories'>
             <?php
-            /* This loop prints each column of the header row */
+            /* This loop prints each item in the header row */
             foreach ($headers as $header) {
-                print'<tr>';
+                print'<tr class="story-headers">';
                 print'<th>' . $header[0] . '</th>';
                 print'<th>' . $header[1] . '</th>';
                 print'<th>' . $header[2] . '</th>';
@@ -81,7 +81,7 @@ fclose($file);
               row in the array */
             foreach ($storyDetails as $storyDetail){
                 $storyCount++;
-                print'<tr>';
+                print'<tr class="story-cells">';
                 print'<td>' . $storyDetail[0] . '</td>';
                 print'<td>' . $storyDetail[1] . '</td>';
                 print'<td>' . $storyDetail[2] . '</td>';
