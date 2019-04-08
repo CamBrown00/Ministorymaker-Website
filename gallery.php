@@ -2,12 +2,12 @@
     include('top.php');
 ?>
 
-<h2 class='heading'> Image Gallery </h2>
+<h2 class='page-heading'> Image Gallery </h2>
 <p class='intro'> </p>
 <figure>
-    <img src='test.png' alt='test image'>
+    <img src='images/test.png' alt='test image'>
     <figcaption>
-        <p></p>
+        <p>Funny Monkey</p>
     </figcaption>
 </figure>
 

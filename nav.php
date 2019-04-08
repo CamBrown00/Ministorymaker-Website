@@ -21,15 +21,6 @@
         print '<a href="blank.php">Basic</a>';
         print '</li>';
 
-        /* Gallery Page */
-        print '<li class="';
-        if ($path_parts['filename'] == 'gallery') {
-            print 'activePage';
-        }
-        print '">';
-        print '<a href="gallery.php">Gallery</a>';
-        print '</li>';
-        
         /* Random Story/Form Page */
         print '<li class="';
         if ($path_parts['filename'] == 'form') {
@@ -37,6 +28,15 @@
         }
         print '">';
         print '<a href="form.php">Form</a>';
+        print '</li>';
+        
+        /* Gallery Page */
+        print '<li class="';
+        if ($path_parts['filename'] == 'gallery') {
+            print 'activePage';
+        }
+        print '">';
+        print '<a href="gallery.php">Gallery</a>';
         print '</li>';
         
         /* Story Sources Page */
