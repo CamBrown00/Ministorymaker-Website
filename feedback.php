@@ -1,5 +1,12 @@
+
 <?php
 include 'top.php';
+?>
+
+<h2 class="form-heading">Give Us Feedback!</h2>
+<h3 class="form-heading">(Please use kind language!)</h3>
+
+<?php
 print PHP_EOL . '<!--SECTION: 1 Initialize variables -->' . PHP_EOL;
 
 print PHP_EOL . '<!--SECTION: 1b Form variables -->' . PHP_EOL;
@@ -202,9 +209,6 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
         print $message;
     }
     else{
-        print "<h2>Write Something Here</h2>";
-        print "<p class='form-heading'>Form Tagline</p>";
-
 
             print PHP_EOL . '<!-- SECTION 3b Error Messages -->' . PHP_EOL;
 

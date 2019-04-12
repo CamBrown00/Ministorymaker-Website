@@ -12,7 +12,7 @@
         print '<a href="index.php">Home</a>';
         print '</li>';
 
-        /* Random Story/Form Page */
+        /* Make a Story */
         print '<li class="';
         if ($path_parts['filename'] == 'form') {
             print 'activePage';
@@ -30,13 +30,13 @@
         print '<a href="gallery.php">Gallery</a>';
         print '</li>';
         
-        /* Story Sources Page */
+        /* About Page */
         print '<li class="';
         if ($path_parts['filename'] == 'sources') {
             print 'activePage';
         }
         print '">';
-        print '<a href="blank.php">The Originals</a>';
+        print '<a href="blank.php">About Us</a>';
         print '</li>';
         
         /* Feedback Page */
