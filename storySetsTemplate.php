@@ -63,41 +63,34 @@ fclose($file);
     <article id="content">
         <h2 class='heading'>Some of the Classics!</h2>
         
-        <?php
-        
-        
-        $storyLimit = 3;
-        $randomIndexes = array();
-        
-        //Create array of non-duplicated random ints (used as indexes later)
-        for ($i = 0; $i < $storyLimit; $i++){
-            $randomIndex = rand(0, count($storyDetails, 1) - 2);
-            while (in_array($randomIndex, $randomIndexes)){
-                $randomIndex = rand(0, count($storyDetails, 1) - 2);
+        <table class='stories'>
+            <?php
+            /* This loop prints each item in the header row */
+            foreach ($headers as $header) {
+                print'<tr class="story-headers">';
+                print'<th>' . $header[0] . '</th>';
+                print'<th>' . $header[1] . '</th>';
+                print'<th>' . $header[2] . '</th>';
+
+                print '</tr>' . PHP_EOL;
             }
-            $randomIndexes[$i] = $randomIndex;
-        }
-        
-        //Print randomized stories
-        for ($j = 0; $j <= $storyLimit; $j++){
-            print   "<section class='storySet'>";
-                /* This loop prints a random item in the header row */
-                foreach ($headers as $header) {
-                    print'<h3 class="story-header">' . $header[$randomIndexes[$j]] . '</h3>';
 
-                    print PHP_EOL;
-                }
+            /* Variable to increment inside foreach loop for every table row */
+            $storyCount = 0;
 
-                /* This loop prints the story that corresponds with the title */
-                foreach ($storyDetails as $storyDetail){
-                    print'<p class="story">' . $storyDetail[$randomIndexes[$j]] . '</p>';
+            /* This loop prints each data column of the header row for each
+              row in the array */
+            foreach ($storyDetails as $storyDetail){
+                $storyCount++;
+                print'<tr class="story-cells">';
+                print'<td>' . $storyDetail[0] . '</td>';
+                print'<td>' . $storyDetail[1] . '</td>';
+                print'<td>' . $storyDetail[2] . '</td>';
 
-                    print PHP_EOL;
-                }
-            print "</section>";
-        }
-        
-        ?>
+                print '</tr>' . PHP_EOL;
+            }
+            ?>
+        </table>
     </article>
 
 
