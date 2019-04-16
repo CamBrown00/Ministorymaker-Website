@@ -64,22 +64,15 @@ fclose($file);
         <h2 class='heading'>Some of the Classics!</h2>
         
         <?php
-        
+        include('functions.php');
         
         $storyLimit = 3;
-        $randomIndexes = array();
-        
-        //Create array of non-duplicated random ints (used as indexes later)
-        for ($i = 0; $i < $storyLimit; $i++){
-            $randomIndex = rand(0, count($storyDetails, 1) - 2);
-            while (in_array($randomIndex, $randomIndexes)){
-                $randomIndex = rand(0, count($storyDetails, 1) - 2);
-            }
-            $randomIndexes[$i] = $randomIndex;
-        }
+        $randomIntervalSize = 5;
+        $randomIndexes = createRandomArray($randomIntervalSize);
+        print'<h3 class="story-header">' . $randomIndexes . '</h3>';
         
         //Print randomized stories
-        for ($j = 0; $j <= $storyLimit; $j++){
+        for ($j = 0; $j < $storyLimit; $j++){
             print   "<section class='storySet'>";
                 /* This loop prints a random item in the header row */
                 foreach ($headers as $header) {
