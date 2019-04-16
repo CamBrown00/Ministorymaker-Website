@@ -10,7 +10,7 @@
 infile = open('cbt_train.txt', 'r') 
 
 # Create a new output text file
-# outfile = open('storySentences6.txt', 'w')
+# outfile = open('storySentences.txt', 'w')
 
 remove_next_l = False
 num_book = 0
