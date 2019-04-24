@@ -4,6 +4,11 @@ $phpSelf = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
 // break the url up into array, extract filename
 $path_parts = pathinfo($phpSelf);
 
+//Display Errors for debugging (Temporary addition for convenience)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>	
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +20,19 @@ $path_parts = pathinfo($phpSelf);
         <meta name="description" content="This site is dedicated to presenting classic children's stories in fun and interesting ways!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css">
         <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script src="jquery.flexslider.js"></script>
+        <script type="text/javascript" charset="utf-8">
+          $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: "false"
+            });
+          });
+        </script>
 <?php
         
 //Setup Path

@@ -1,10 +1,6 @@
 
 <!-- This reads and displays data from a csv file -->
 <?php
-$storyTitle = '';
-if (isset($_GET['storyTitle'])) {
-    $storyTitle = htmlentities($_GET['storyTitle'], ENT_QUOTES, "UTF-8");
-}
 //=======Open announcement data csv file=======
 /* This php opens the csv file containing the stories to be read */
 
@@ -64,25 +60,18 @@ fclose($file);
         <h2 class='heading'>Some of the Classics!</h2>
         
         <?php
-        
+        include('functions.php');
         
         $storyLimit = 3;
-        $randomIndexes = array();
-        
-        //Create array of non-duplicated random ints (used as indexes later)
-        for ($i = 0; $i < $storyLimit; $i++){
-            $randomIndex = rand(0, count($storyDetails, 1) - 2);
-            while (in_array($randomIndex, $randomIndexes)){
-                $randomIndex = rand(0, count($storyDetails, 1) - 2);
-            }
-            $randomIndexes[$i] = $randomIndex;
-        }
+        $randomIntervalSize = sizeof($storyDetails, 1) - 1;
+        $randomIndexes = createRandomArray($randomIntervalSize);
         
         //Print randomized stories
-        for ($j = 0; $j <= $storyLimit; $j++){
+        for ($j = 0; $j < $storyLimit; $j++){
             print   "<section class='storySet'>";
                 /* This loop prints a random item in the header row */
                 foreach ($headers as $header) {
+                
                     print'<h3 class="story-header">' . $header[$randomIndexes[$j]] . '</h3>';
 
                     print PHP_EOL;
@@ -94,6 +83,7 @@ fclose($file);
 
                     print PHP_EOL;
                 }
+                
             print "</section>";
         }
         
