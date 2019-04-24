@@ -12,24 +12,9 @@
     "story2.jpg", etc..
 -->
 <section class="flexslider">
-    <ul class="slides">
-        <li>
-            <figure>
-                <img src="images/storyslide1.jpg"/>
-                <figcaption class="flex-caption">
-                    This is the first test image.
-                </figcaption>
-            </figure>
-        </li>
-        <li>
-            <figure>
-                <img src="images/storyslide2.png"/>
-                <figcaption class="flex-caption">
-                    This is the second test image.
-                </figcaption>
-            </figure>
-        </li>
-    </ul>
+    <?php
+        include('gallerySlider.php');
+    ?>
 </section>
 
 <?php
