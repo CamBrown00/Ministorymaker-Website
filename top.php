@@ -20,14 +20,17 @@ error_reporting(E_ALL);
         <meta name="description" content="This site is dedicated to presenting classic children's stories in fun and interesting ways!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
+        <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="jquery.flexslider.js"></script>
         <script type="text/javascript" charset="utf-8">
           $(window).load(function() {
-            $('.flexslider').flexslider();
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: "false"
+            });
           });
         </script>
 <?php
