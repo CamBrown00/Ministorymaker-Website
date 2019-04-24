@@ -10,7 +10,7 @@
     <ul class="slides">
         <li>
             <figure>
-                <img src="storyslide1.jpg"/>
+                <img src="images/storyslide1.jpg"/>
                 <figcaption class="flex-caption">
                     This is the first test image.
                 </figcaption>
@@ -18,7 +18,7 @@
         </li>
         <li>
             <figure>
-                <img src="storyslide2.jpg"/>
+                <img src="images/storyslide2.png"/>
                 <figcaption class="flex-caption">
                     This is the second test image.
                 </figcaption>
