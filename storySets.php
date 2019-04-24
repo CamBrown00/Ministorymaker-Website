@@ -69,7 +69,6 @@ fclose($file);
         $storyLimit = 3;
         $randomIntervalSize = 5;
         $randomIndexes = createRandomArray($randomIntervalSize);
-        print'<h3 class="story-header">' . $randomIndexes . '</h3>';
         
         //Print randomized stories
         for ($j = 0; $j < $storyLimit; $j++){
