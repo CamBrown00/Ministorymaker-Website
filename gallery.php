@@ -6,6 +6,11 @@
 <p class='intro'> </p>
 
 <!-- Flexslider Controls-->
+<!-- 
+    Name images based on the order of stories in the csv, so the image for the
+    first story would be "story1.jpg", the second story image would be called
+    "story2.jpg", etc..
+-->
 <section class="flexslider">
     <ul class="slides">
         <li>
@@ -28,5 +33,6 @@
 </section>
 
 <?php
+    include('storySets.php');
     include('footer.php');
 ?>
