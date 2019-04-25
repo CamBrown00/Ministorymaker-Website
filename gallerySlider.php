@@ -48,14 +48,13 @@ if ($file) {
     print "<ul class='slides'>";
     for ($j = 0; $j < $slideCount; $j++){
         print "<li class='slide'>";
-            print("<p>" . $j . "</p>");
-            print('<img src="images/storyslide' . $j . '.jpg"/>');
             foreach ($headers as $header) {
 
                 print'<h3 class="story-header">' . $header[$j] . '</h3>';
 
                 print PHP_EOL;
             }
+            print('<img src="images/storyslide' . $j . '.jpg"/>');
 
             foreach ($authors as $author) {
 
@@ -66,7 +65,7 @@ if ($file) {
 
             /* This loop prints the story that corresponds with the title */
             foreach ($storyDetails as $storyDetail){
-                print'<p class="flex-caption">' . $storyDetail[$j] . '</p>';
+                print'<p class="flex-caption story-content">' . $storyDetail[$j] . '</p>';
 
                 print PHP_EOL;
             }

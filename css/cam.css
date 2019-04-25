@@ -1,0 +1,39 @@
+/* Gallery Slider */ 
+.flex-caption{
+  width: 90%;
+  padding: 4%;
+  margin: auto;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+  font-size: 16px;
+  line-height: 18px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+}
+
+.flexslider{
+    width: 900px;
+    margin: auto;
+    background: rgba(0,0,0,.15);
+}
+
+.flexslider img{
+    width: 600px;
+}
+
+.flexslider h3, .flexslider p{
+    text-align: center;
+}
+
+.flex-viewport{
+    max-height: 900px;
+    background: rgba(0,0,0,0);
+}
+
+.flex-caption:hover{
+    background-color: rgba(0,0,0,.7);
+    transition: background-color, 1s;
+}
+
+.flex-caption{
+    transition: background-color, 1s;
+}
