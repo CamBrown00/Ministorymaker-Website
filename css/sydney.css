@@ -8,15 +8,27 @@ and open the template in the editor.
     Author     : sydin
 */
 
-img {
-    max-width: 300px;
-}
-
 /************************/
 /*       NAV LAYOUT     */
 /************************/
 
-
+#navbar {
+    background-color: #fff;
+    padding: 20px;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li {
+    display: inline-block;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 /************************/
 /*     HEADER LAYOUT    */
@@ -26,4 +38,12 @@ header {
     background-image: url("../images/header-background.jpg");
 	  background-size: cover;
 	  height: 350px;
+}
+
+/************************/
+/*   HOMEPAGE LAYOUT    */
+/************************/
+
+img {
+    max-width: 300px;
 }

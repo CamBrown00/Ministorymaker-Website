@@ -1,6 +1,6 @@
 <!--          Beginning of Nav          -->
-<nav>
-    <ol>
+<nav id="navbar">
+    <ul>
         <?php
 
         /* Home Page */
@@ -48,6 +48,21 @@
         print '<a href="feedback.php">Feedback</a>';
         print '</li>';
         ?>
-    </ol>
+    </ul>
 </nav>
 <!--          End of Nav          -->
+
+<script>
+window.onscroll = function() {responsiveNav()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function responsiveNav() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+}
+</script>
