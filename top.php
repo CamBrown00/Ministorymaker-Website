@@ -22,6 +22,7 @@ error_reporting(E_ALL);
 
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
         <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="jquery.flexslider.js"></script>
