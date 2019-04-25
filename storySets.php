@@ -30,28 +30,20 @@ if ($debug) {
 //========Read announcement data========
 /* This reads the csv file containing the stories */
 if ($file) {
-    if ($debug) print'<p>Begin reading this data into an array.</p>';
 
-    //Read the header row from the data, copy the line for each header row.
+    //Read the author row from the data, copy the line for each author row.
+    $authors[] = fgetcsv($file);
+    
+    //Read the title row from the data, copy the line for each header row.
     $headers[] = fgetcsv($file);
-
-    if ($debug){
-        print'<p>Finished reading headers.</p>';
-        print'<p>Header array: </p><pre>';
-        print_r($headers);
-        print'</pre>';
-    }
-
+    
+    //Read the story row from the data, copy the line for each story row.
+    $storyDetails[] = fgetcsv($file);
+    /*
     while (!feof($file)){
         $storyDetails[] = fgetcsv($file);
     }
-
-    if ($debug){
-        print'<p>Finished reading data. File closed.</p>';
-        print'<p>My data array: <p><pre>';
-        print_r($storyDetails);
-        print'</pre></p>';
-    }
+    */
 }
 fclose($file);
 ?>
@@ -72,7 +64,14 @@ fclose($file);
                 /* This loop prints a random item in the header row */
                 foreach ($headers as $header) {
                 
-                    print'<h3 class="story-header">' . $header[$randomIndexes[$j]] . '</h3>';
+                    print'<h2 class="story-header">' . $header[$randomIndexes[$j]] . '</h2>';
+
+                    print PHP_EOL;
+                }
+                
+                foreach ($authors as $author) {
+                
+                    print'<h3 class="story-author">' . $author[$randomIndexes[$j]] . '</h3>';
 
                     print PHP_EOL;
                 }
