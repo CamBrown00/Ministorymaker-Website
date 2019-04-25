@@ -1,39 +1,27 @@
-/* Gallery Slider */ 
-.flex-caption{
-  width: 90%;
-  padding: 4%;
-  margin: auto;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-  font-size: 16px;
-  line-height: 18px;
-  background: rgba(0,0,0,.6);
-  color: #fff;
+body{
+  background-image: url("https://s19386.pcdn.co/wp-content/uploads/2017/01/background-dark-blue-1.jpg");
+  color: #FFF;
+  padding: 50px;
 }
 
-.flexslider{
-    width: 900px;
-    margin: auto;
-    background: rgba(0,0,0,.15);
+a{
+  color: blue;
+  line-height: 40px;
+  font-family: "Lucida Sans Unicode";
+  transition: color .4s;
 }
 
-.flexslider img{
-    width: 600px;
+a:hover{
+  color: silver;
+  transition: color .4s;
 }
 
-.flexslider h3, .flexslider p{
-    text-align: center;
+font{
+  color: white;
 }
 
-.flex-viewport{
-    max-height: 900px;
-    background: rgba(0,0,0,0);
-}
-
-.flex-caption:hover{
-    background-color: rgba(0,0,0,.7);
-    transition: background-color, 1s;
-}
-
-.flex-caption{
-    transition: background-color, 1s;
+table{
+  margin-bottom: -20px;
+  margin-left: 10px;
+  text-shadow: 1px 1px 18px darkblue;
 }
