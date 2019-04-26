@@ -8,10 +8,13 @@ and open the template in the editor.
     Author     : sydin
 */
 
+img {
+    max-width: 300px;
+}
+
 /************************/
 /*       NAV LAYOUT     */
 /************************/
-
 #navbar {
     background-color: #fff;
     padding: 20px;
@@ -34,16 +37,12 @@ nav li {
 /*     HEADER LAYOUT    */
 /************************/
 
-header {
-    background-image: url("../images/header-background.jpg");
-	  background-size: cover;
-	  height: 350px;
+body header {
+	  height: 200px;
+	  text-align: center;
 }
 
-/************************/
-/*   HOMEPAGE LAYOUT    */
-/************************/
-
-img {
-    max-width: 300px;
+.site-header,
+.tagline {
+    
 }
