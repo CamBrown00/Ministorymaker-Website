@@ -16,8 +16,10 @@ img {
 /*       NAV LAYOUT     */
 /************************/
 #navbar {
-    background-color: #fff;
+    background-color: lightyellow;
     padding: 20px;
+    margin-bottom: 1em;
+    
 }
 nav ul {
     list-style-type: none;
@@ -40,9 +42,24 @@ nav li {
 body header {
 	  height: 200px;
 	  text-align: center;
+      background-color: lightgrey;
 }
 
-.site-header,
-.tagline {
+#header-wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header h1 a {
+    font-size: 3em;
     
+}
+
+header h3 {
+    font-size: 1.3em;
+}
+
+header .site-header {
+    padding: 15px;
 }
