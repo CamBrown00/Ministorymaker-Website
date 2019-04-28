@@ -19,25 +19,11 @@ if ($debug) {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
-//
 // Initialize variables one for each form element
 // in the order they appear on the form
 
-$firstName = "";
-
-$lastName = "";
-
+$yourSentence = "";
 $email = "";
-
-$mType = "comment";   // pick the option
-
-$yourMessage = "";
-
-$smiling = false; // not checked
-$talents = false;
-$grateful = false;
-
-$rating = "*****";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -45,16 +31,9 @@ print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
 
 // Initialize Error Flags, one for each form element we validate
 // in the order they appear on the form
-$firstNameERROR = false;
-$lastNameERROR = false;
-$emailERROR = false;
-$mTypeERROR = false;
-$yourMessageERROR = false;
 
-$todayIAmERROR = false;
-$totalChecked = 0;
-
-$ratingERROR = false;
+$yourSentenceERROR = false;
+$email = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -89,38 +68,10 @@ if (isset($_POST["btnSubmit"])) {
     // remove any potential JavaScript or html code from users input on the
     // form. Note it is best to follow the same order they appear on the form.
     
-    $firstName = htmlentities($_POST["txtFirstName"], ENT_QUOTES, "UTF-8");
+    $yourSentence = htmlentities($_POST["txtYourSentence"], ENT_QUOTES, "UTF-8");
    
-    $lastName = htmlentities($_POST["txtLastName"], ENT_QUOTES, "UTF-8");
-    
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
     
-    $mType = htmlentities($_POST["lstMessageType"], ENT_QUOTES, "UTF-8");
-    
-    $yourMessage = htmlentities($_POST["txtYourMessage"], ENT_QUOTES, "UTF-8");
-    
-    $rating = htmlentities($_POST["radRating"], ENT_QUOTES, "UTF-8");
-    
-    // Note if a check box is not checked it is not sent in the POST array
-    if (isset($_POST["chkSmiling"])) {
-        $smiling = true;
-        $totalChecked++;
-    } else {
-        $smiling = false;
-    }
-    if (isset($_POST["chkTalents"])) {
-        $talents = true;
-        $totalChecked++;
-    } else {
-        $talents = false;
-    }
-    if (isset($_POST["chkGrateful"])) {
-        $grateful = true;
-        $totalChecked++;
-    } else {
-        $grateful = false;
-    }
-
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     print PHP_EOL . '<!-- SECTION: 2c Validation -->' . PHP_EOL;
@@ -131,20 +82,26 @@ if (isset($_POST["btnSubmit"])) {
     // order that the elements appear on your form so that the error messages
     // will be in the order they appear. errorMsg will be displayed on the form
     // see section 3b. The error flag ($emailERROR) will be used in section 3c.
-    if ($firstName == "") { // first check if empty
-        $errorMsg[] = "Please enter your first name.";
-        $firstNameERROR = true;
-    } elseif (!verifyAlphaNum($firstName)) { // then check that it only contains alphanumeric symbols
-        $errorMsg[] = "Your first name appears to have extra characters.";
-        $firstNameERROR = true;
+    
+    // ***Function*** to check for valid sentences that removes digits and 
+    // underscores; allows multiple words; allows characters: [',-,.,!,?,,,"]; 
+    // and supports extended ASCII characters.
+    // ($pattern inspiration from: https://andrewwoods.net/blog/2018/name-validation-regex/)
+    
+    function verifySentence($sentence) { 
+        $pattern = '/^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+([\ A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+)*/u'; 
+        if (preg_match($pattern, $sentence)) {
+            return true; 
+        } 
+        return false; 
     }
     
-    if ($lastName == "") { 
-        $errorMsg[] = "Please enter your last name.";
-        $lastNameERROR = true;
-    } elseif (!verifyAlphaNum($lastName)) { 
-        $errorMsg[] = "Your last name appears to have extra characters.";
-        $lastNameERROR = true;
+    if ($yourSentence == "") { // first check if empty
+        $errorMsg[] = "Finish the story with your own sentence!";
+        $yourSentence = true;
+    } elseif (!verifySentence($yourSentence)) { // then check that it only contains accepted characters
+        $errorMsg[] = "Oops, only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
+        $yourSentenceERROR = true;
     }
     
     if ($email == "") {
@@ -155,24 +112,6 @@ if (isset($_POST["btnSubmit"])) {
         $emailERROR = true;
     }
     
-    if ($mType == "") {
-        $errorMsg[] = "Please choose a message type.";
-        $mTypeERROR = true;
-    }
-    
-    if ($yourMessage == "") {
-        $errorMsg[] = "Please enter your message.";
-        $yourMessageERROR = true; 
-    } elseif (!verifyAlphaNum($yourMessage)) {
-        $errorMsg[] = "Your message appears to have extra characters that are not allowed.";
-        $yourMessageERROR = true;
-    }
-    
-    // check radio buttons
-    if ($rating != "*" AND $rating != "**" AND $rating != "***" AND $rating != "****" AND $rating != "*****") {
-        $errorMsg[] = "Remember to pick a rating.";
-        $ratingERROR = true;
-    }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     print PHP_EOL . '<!-- SECTION: 2d Process Form - Passed Validation -->' . PHP_EOL;
