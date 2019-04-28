@@ -7,10 +7,8 @@ print PHP_EOL . '<!-- SECTION: 1 Initialize variables -->' . PHP_EOL;
 // declare them in the section we needed them
 
 print PHP_EOL . '<!-- SECTION: 1a. debugging setup -->' . PHP_EOL;
-// We print out the post array so that we can see our form is working.
-// Normally I wrap this in a debug statement but for now I want to always
-// display it. When you first come to the form, it is empty. When you submit the
-// form, it deisplays the contents of the post array.
+// If debug is on: When you first come to the form, it is empty. 
+// When you submit the form, it displays the contents of the post array.
 if ($debug) {
     print '<p>Post Array:</p><pre>';
     print_r($_POST);
@@ -33,7 +31,7 @@ print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
 // in the order they appear on the form
 
 $yourSentenceERROR = false;
-$email = false;
+$emailERROR = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -43,7 +41,7 @@ print PHP_EOL . '<!-- SECTION: 1d misc variables -->' . PHP_EOL;
 $errorMsg = array();
 
 // have we mailed the information to the user? flag variable
-$mailed=false;
+$mailed = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -57,7 +55,7 @@ if (isset($_POST["btnSubmit"])) {
     $thisURL = $domain . $phpSelf;
     
     if (!securityCheck($thisURL)) {
-        $msg = '<p>Sorry you cannot access this page.</p>';
+        $msg = '<p>Sorry, you cannot access this page.</p>';
         $msg.= '<p>Security breach detected and reported.</p>';
         die($msg);
     } 
@@ -121,7 +119,6 @@ if (isset($_POST["btnSubmit"])) {
         if ($debug)
             print '<p>Form is valid</p>';
     
-    
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         print PHP_EOL . '<!-- SECTION: 2e Save Data -->' . PHP_EOL;
@@ -133,21 +130,14 @@ if (isset($_POST["btnSubmit"])) {
         $dataRecord = array();
         
         // assign values to the dataRecord array
-        $dataRecord[] = $firstName;
-        $dataRecord[] = $lastName;
-        $dataRecord[] = $email;
-        $dataRecord[] = $mType;
-        $dataRecord[] = $yourMessage;
-        
-        $dataRecord[] = $smiling;
-        $dataRecord[] = $talents;
-        $dataRecord[] = $grateful;
-        
-        $dataRecord[] = $rating;
+        $dataRecord[] = $sentence1;
+        $dataRecord[] = $sentence2;
+        $dataRecord[] = $sentence3;
+        $dataRecord[] = $yourSentence;
         
         // set up csv file
         $myFolder = 'data/';
-        $myFileName = 'inquiries';
+        $myFileName = 'randomStories';
         $fileExt = '.csv';
         $filename = $myFolder . $myFileName . $fileExt;
         
@@ -168,8 +158,8 @@ if (isset($_POST["btnSubmit"])) {
        
         // build a message to display on the screen in section 3a and to mail
         // to the person filling out the form (section 2g).
-        $message = '<h2 style="text-align:center">Thank you for your message!</h2>'
-                . '<h4>Here is a copy of the details you filled out: </h4>';
+        $message = '<h2 class="">Your random mini story is complete!</h2>'
+                . '<h4>Here is the story you made: </h4>';
         
         foreach ($_POST as $htmlName => $value) {
             
@@ -189,7 +179,7 @@ if (isset($_POST["btnSubmit"])) {
             }
         }
         
-        $message .= '<h4>Have a great day!</h4>';
+        $message .= '<h4>The end.</h4>';
         
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -201,10 +191,10 @@ if (isset($_POST["btnSubmit"])) {
         $cc = '';
         $bcc = '';
         
-        $from = 'Perspectives <abrown72@uvm.edu>';
+        $from = 'Mini Story Maker <abrown72@uvm.edu>';
         
         // subject of mail should make sense to your form
-        $subject =  "Your Inquiry to Yara Ira";
+        $subject =  "Your Mini Story";
         
         $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
     
@@ -224,14 +214,13 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     print PHP_EOL . '<!-- SECTION: 3a -->' . PHP_EOL;
-    //
-    // If it's the first time coming to the form or there are errors, 
-    // we are going to display the form.
+    
+    // Display form initially or if submitted unsucessfully 
 
     if (isset($_POST["btnSubmit"]) AND empty($errorMsg)) { // closing of if marked with: end body submit 
-       print '<h2>Thanks for reaching out!</h2>';
+       print '<h2>What a random, mini story!</h2>';
 
-       print '<p>For your records a copy of this data has ';
+       print '<p>Your completed story has ';
 
        if (!$mailed) {
            print '<span id="notMailed">not </span>';
@@ -245,7 +234,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     } 
     else {
         print '<h1 class="">Make a story!</h1>';
-        print '<p class="">Want to know more? Please share your questions, comments, or ideas for collaboration!</p>';
+        print '<p class="">Press the "Make a Story" button, then finish the story with your own sentence. If you want to save your story: enter your email, and press "Save Your Story" to receive a copy.</p>';
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
@@ -255,7 +244,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 
         if ($errorMsg) {
             print '<div id="errors">' . PHP_EOL;
-            print '<h2>Oops! Your inquiry has the following mistakes to fix:</h2>' . PHP_EOL;
+            print '<h2>Oops! Can\'t save yet. Please re-enter the following: </h2>' . PHP_EOL;
             print '<ol>' . PHP_EOL;
 
             foreach ($errorMsg as $err) {
@@ -270,16 +259,16 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 
         print PHP_EOL . '<!-- SECTION: 3c html Form -->' . PHP_EOL;
 
-        /*Display the HTML form. Note that the action is to this same page. $phpSelf
-         *  is defined in top.php
-         *  NOTE the line:
-         *  value="<?php print $email; ?>
-         *  This makes the form sticky by displaying either the initial default value (line ??)
-         *  or the value they typed in (line ??)
-         *  NOTE this line:
-         *  <?php if ($emailERROR) print 'class="mistake"'; ?>
-         *  This prints out a css class so that we can highlight the background etc. to
-         *  make it stand out that a mistake happened here.
+        /* Display the HTML form. Note that the action is to this same page. 
+         * $phpSelf is defined in top.php
+         * 
+         * NOTE the line: value="<?php print $email; ?>
+         * This makes the form sticky by displaying either the initial default value (line ??)
+         * or the value they typed in (line ??)
+         * 
+         * NOTE this line: <?php if ($emailERROR) print 'class="mistake"'; ?>
+         * This prints out a css class so that we can highlight the background etc. to
+         * make it stand out that a mistake happened here.
          */
         ?>
     
@@ -289,7 +278,59 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        class="">
         
         
-     
+        <fieldset class = "contact">
+                <legend>Your name and email:</legend>
+                <!--<p>
+                    <label class="" for="txtName">Name</label>
+                    <input autofocus
+                           <?php if ($nameERROR) print 'class="mistake"'; ?>
+                           id="txtName"
+                           maxlength="45"
+                           name="txtName"
+                           onfocus="this.select()"
+                           placeholder="Enter your name"
+                           tabindex="100"
+                           type="text"
+                           value="<?php print $name; ?>"
+                    >   
+                </p>-->
+
+                <p>
+                    <label class="required" for="txtEmail">Email:</label>
+                        <input
+                            <?php if ($emailERROR) print 'class="mistake"'; ?>
+                            id = "txtEmail"
+                            maxlength = "45"
+                            name = "txtEmail"
+                            onfocus = "this.select()"
+                            placeholder = "Enter your email address"
+                            tabindex = "120"
+                            type = "text"
+                            value = "<?php print $email; ?>"
+                       >
+                </p>
+        </fieldset> <!-- ends email/name -->
+        
+        <fieldset class="textarea sentence">
+            <legend>Finish the story:</legend>
+            <p>
+                <label class="required" for="txtYourSentence"></label>
+                <textarea <?php if ($yourSentenceERROR) print 'class="mistake"'; ?>
+                    id="txtYourSentence"
+                    name="txtYourSentence"
+                    placeholder = "Type your sentence here."
+                    onfocus="this.select()"
+                    tabindex="300"><?php print $yourSentence; ?></textarea>
+                <!-- NOTE: no blank spaces inside the text area, be sure to close
+                            the text area directly -->
+            </p>
+        </fieldset> <!-- end sentence textarea -->
+        
+        
+        <fieldset class="buttons">
+                <legend>Save Your Story</legend>
+                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Submit">
+        </fieldset> <!-- end buttons -->
 
     </form>
 <?php
