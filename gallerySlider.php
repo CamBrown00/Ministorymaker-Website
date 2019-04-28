@@ -54,22 +54,25 @@ if ($file) {
 
                 print PHP_EOL;
             }
-            print('<img src="images/storyslide' . $j . '.jpg"/>');
-
+            
             foreach ($authors as $author) {
 
-                print'<p class="story-author">by ' . $author[$j] . '</p>';
+                print'<h4 class="story-author">by ' . $author[$j] . '</h4>';
 
                 print PHP_EOL;
             }
+            
+            print('<img src="images/storyslide' . $j . '.jpg"/>');
 
-            /* This loop prints the story that corresponds with the title */
-            foreach ($storyDetails as $storyDetail){
-                print'<p class="flex-caption story-content">' . $storyDetail[$j] . '</p>';
+            
+            print('<main class="story-main">');
+                /* This loop prints the story that corresponds with the title */
+                foreach ($storyDetails as $storyDetail){
+                    print'<p class="flex-caption" id="story-content-min">' . $storyDetail[$j] . '</p>';
 
-                print PHP_EOL;
-            }
-
+                    print PHP_EOL;
+                }
+            print('</main>');
         print "</li>";
     }
     print "</ul>";

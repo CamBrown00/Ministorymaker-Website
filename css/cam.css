@@ -1,13 +1,13 @@
 /* Gallery Slider */ 
 .flex-caption{
   width: 90%;
-  padding: 4%;
-  margin: auto;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-  font-size: 16px;
-  line-height: 18px;
-  background: rgba(0,0,0,.6);
-  color: #fff;
+  padding: 2.5%;
+  margin: 0 auto 2% auto;
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #000;
+  transition: background-color, 1s;
 }
 
 .flexslider{
@@ -17,17 +17,21 @@
 }
 
 .flexslider img{
-    max-width: 85%;
+    max-width: 90%;
     margin: auto;
 }
 
 .flexslider h3{
     font-weight: bold;
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 1.5em;
 }
 
-.flexslider h3, .flexslider p{
+.flexslider h4{
+    font-size: 1.2em;
     text-align: center;
-    padding: 2em;
+    padding: 2%;
 }
 
 .flex-viewport{
@@ -35,12 +39,25 @@
     background: rgba(0,0,0,0);
 }
 
-.flex-caption:hover{
-    background-color: rgba(0,0,0,.7);
-    transition: background-color, 1s;
+.story-main{
+    background-color: white;
 }
 
-.flex-caption{
-    line-height: 1.5em;
-    transition: background-color, 1s;
+#story-content-min{
+    max-height: 400px;
+    overflow: hidden;
+}
+
+#story-content-max{
+    max-height: 100%;
+    background-image: none;
+}
+
+#extender-button{
+    display: block;
+    margin: 3% auto;
+    padding: .65%;
+    font-size: 1.2em;
+    color: #FFF;
+    background-color: #000;
 }
