@@ -1,6 +1,8 @@
 <!-- ======================== Start of Header ======================== -->
 <header>
-    <h1 class='site-header'><a href=index.php>Placeholder Header</a></h1>
-    <h3 class='tagline'>Placeholder Tag line</h3>
+    <div id="header-wrapper">
+        <h1 class='site-header'><a href=index.php>Mini Story Maker</a></h1>
+        <h3 class='tagline'>Countless random stories to discover!</h3>
+    </div>
 </header>
 <!-- ======================== End of Header ======================== -->

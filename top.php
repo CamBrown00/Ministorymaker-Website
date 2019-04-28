@@ -5,8 +5,8 @@ $phpSelf = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
 $path_parts = pathinfo($phpSelf);
 
 //Display Errors for debugging (Temporary addition for convenience)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 ?>	
@@ -26,7 +26,7 @@ error_reporting(E_ALL);
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="jquery.flexslider.js"></script>
-        <script type="text/javascript" charset="utf-8">
+        <script>
           $(window).load(function() {
             $('.flexslider').flexslider({
                 animation: "slide",

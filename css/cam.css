@@ -1,10 +1,46 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 25, 2019, 11:56:47 AM
-    Author     : sydin
-*/
+/* Gallery Slider */ 
+.flex-caption{
+  width: 90%;
+  padding: 4%;
+  margin: auto;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+  font-size: 16px;
+  line-height: 18px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+}
 
+.flexslider{
+    width: 92%;
+    margin: auto;
+    background: rgba(0,0,0,.12);
+}
+
+.flexslider img{
+    max-width: 85%;
+    margin: auto;
+}
+
+.flexslider h3{
+    font-weight: bold;
+}
+
+.flexslider h3, .flexslider p{
+    text-align: center;
+    padding: 2em;
+}
+
+.flex-viewport{
+    max-width: 100%;
+    background: rgba(0,0,0,0);
+}
+
+.flex-caption:hover{
+    background-color: rgba(0,0,0,.7);
+    transition: background-color, 1s;
+}
+
+.flex-caption{
+    line-height: 1.5em;
+    transition: background-color, 1s;
+}
