@@ -8,10 +8,6 @@ and open the template in the editor.
     Author     : sydin
 */
 
-img {
-    max-width: 300px;
-}
-
 /************************/
 /*       NAV LAYOUT     */
 /************************/
@@ -62,4 +58,18 @@ header h3 {
 
 header .site-header {
     padding: 15px;
+}
+
+/************************/
+/*   HOMEPAGE LAYOUT    */
+/************************/
+
+#index article {
+    margin: 1.5em;
+    display: inline-block;
+}
+
+article {
+    text-align: right;
+    display: inline-block;
 }
