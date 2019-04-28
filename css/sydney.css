@@ -11,15 +11,65 @@ and open the template in the editor.
 /************************/
 /*       NAV LAYOUT     */
 /************************/
-
-
+#navbar {
+    background-color: lightyellow;
+    padding: 20px;
+    margin-bottom: 1em;
+    
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li {
+    display: inline-block;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 /************************/
 /*     HEADER LAYOUT    */
 /************************/
 
-header {
-    background-image: url("../images/header-background.jpg");
-	  background-size: cover;
-	  height: 350px;
+body header {
+	  height: 200px;
+	  text-align: center;
+      background-color: lightgrey;
+}
+
+#header-wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header h1 a {
+    font-size: 3em;
+    
+}
+
+header h3 {
+    font-size: 1.3em;
+}
+
+header .site-header {
+    padding: 15px;
+}
+
+/************************/
+/*   HOMEPAGE LAYOUT    */
+/************************/
+
+#index article {
+    margin: 1.5em;
+    display: inline-block;
+}
+
+article {
+    text-align: right;
+    display: inline-block;
 }
