@@ -2,7 +2,7 @@
     include('top.php');
 ?>
     <main>
-        <article>
+        <article id="intro-article">
             <p class='intro'>
                 <img class="home-img-1" alt="" src="images/home-img-1.jpg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 

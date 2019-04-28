@@ -68,12 +68,12 @@ header .site-header {
 /*   HOMEPAGE LAYOUT    */
 /************************/
 
-#index article {
+#index #intro-article {
     margin: 1.5em;
     display: inline-block;
 }
 
-article {
+#index article {
     text-align: right;
     display: inline-block;
 }
