@@ -13,22 +13,31 @@ and open the template in the editor.
 /************************/
 #navbar {
     background-color: lightyellow;
-    padding: 20px;
     margin-bottom: 1em;
-    
+    height: 60px;
 }
 nav ul {
     list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
 }
 nav li {
-    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    width: 20%;
+    text-align: center;
 }
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+nav .activePage {
+    background-color: lightgrey;
 }
 
 /************************/
