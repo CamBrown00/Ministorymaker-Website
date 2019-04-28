@@ -5,9 +5,9 @@ $phpSelf = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
 $path_parts = pathinfo($phpSelf);
 
 //Display Errors for debugging (Temporary addition for convenience)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
 ?>	
 <!DOCTYPE html>
@@ -34,6 +34,13 @@ error_reporting(E_ALL);
           });
         </script>
 <?php
+
+$debug = false;
+// This if statement allows us in the classroom to see what our variables are
+// This is NEVER done on a live site
+if (isset($_GET["debug"])) {
+    $debug = true;
+}
         
 //Setup Path
 
