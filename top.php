@@ -5,8 +5,8 @@ $phpSelf = htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8");
 $path_parts = pathinfo($phpSelf);
 
 //Display Errors for debugging (Temporary addition for convenience)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
 
 ?>	
@@ -22,10 +22,11 @@ error_reporting(E_ALL);
 
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
         <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
         <script src="jquery.flexslider.js"></script>
-        <script type="text/javascript" charset="utf-8">
+        <script>
           $(window).load(function() {
             $('.flexslider').flexslider({
                 animation: "slide",
@@ -62,13 +63,13 @@ if ($debug){
 
 print  PHP_EOL . '<!-- include libraries -->' . PHP_EOL;        
 
-    require_once 'lib/security.php'; // must find file or script stops
+require_once 'lib/security.php'; // must find file or script stops
          
-    include_once 'lib/validation-functions.php'; // if file not found, script will produce warning and continue
+include_once 'lib/validation-functions.php'; // if file not found, script will produce warning and continue
 
-    include_once 'lib/mail-message.php';
+include_once 'lib/mail-message.php';
 
-    print PHP_EOL . '<!-- finished including libraries -->' . PHP_EOL;
+print PHP_EOL . '<!-- finished including libraries -->' . PHP_EOL;
 ?>         
 </head>
     
