@@ -277,8 +277,22 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        method = "post"
        class="">
         
+        <fieldset class="textarea sentence">
+            <legend>Finish the story:</legend>
+            <p>
+                <label class="required" for="txtYourSentence"></label>
+                <textarea <?php if ($yourSentenceERROR) print 'class="mistake"'; ?>
+                    id="txtYourSentence"
+                    name="txtYourSentence"
+                    placeholder = "Type your sentence here."
+                    onfocus="this.select()"
+                    tabindex="300"><?php print $yourSentence; ?></textarea>
+                <!-- NOTE: no blank spaces inside the text area, be sure to close
+                            the text area directly -->
+            </p>
+        </fieldset> <!-- end sentence textarea -->
         
-        <fieldset class = "contact">
+                <fieldset class = "contact">
                 <legend>Your name and email:</legend>
                 <!--<p>
                     <label class="" for="txtName">Name</label>
@@ -310,21 +324,6 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                        >
                 </p>
         </fieldset> <!-- ends email/name -->
-        
-        <fieldset class="textarea sentence">
-            <legend>Finish the story:</legend>
-            <p>
-                <label class="required" for="txtYourSentence"></label>
-                <textarea <?php if ($yourSentenceERROR) print 'class="mistake"'; ?>
-                    id="txtYourSentence"
-                    name="txtYourSentence"
-                    placeholder = "Type your sentence here."
-                    onfocus="this.select()"
-                    tabindex="300"><?php print $yourSentence; ?></textarea>
-                <!-- NOTE: no blank spaces inside the text area, be sure to close
-                            the text area directly -->
-            </p>
-        </fieldset> <!-- end sentence textarea -->
         
         
         <fieldset class="buttons">
