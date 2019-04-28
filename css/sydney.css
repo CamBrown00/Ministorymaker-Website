@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 25, 2019, 11:56:30 AM
+    Author     : sydin
+*/
+
+/************************/
+/*       NAV LAYOUT     */
+/************************/
+nav {
+    background-color: lightyellow;
+    margin-bottom: 1em;
+    height: 60px;
+}
+nav ul {
+    list-style-type: none;
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+nav li {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    width: 20%;
+    text-align: center;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav .activePage {
+    background-color: lightgrey;
+}
+
+/************************/
+/*     HEADER LAYOUT    */
+/************************/
+
+body header {
+	  height: 200px;
+	  text-align: center;
+      background-color: lightgrey;
+}
+
+#header-wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header h1 a {
+    font-size: 3em;
+    
+}
+
+header h3 {
+    font-size: 1.3em;
+}
+
+header .site-header {
+    padding: 15px;
+}
+
+/************************/
+/*   HOMEPAGE LAYOUT    */
+/************************/
+
+#index article {
+    margin: 1.5em;
+    display: inline-block;
+}
+
+article {
+    text-align: right;
+    display: inline-block;
+}
