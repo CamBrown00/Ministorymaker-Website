@@ -14,11 +14,11 @@
 
         /* Make a Story */
         print '<li class="';
-        if ($path_parts['filename'] == 'form') {
+        if ($path_parts['filename'] == 'makeastory') {
             print 'activePage';
         }
         print '">';
-        print '<a href="form.php">Make a Story</a>';
+        print '<a href="makeastory.php">Make a Story</a>';
         print '</li>';
         
         /* Gallery Page */
