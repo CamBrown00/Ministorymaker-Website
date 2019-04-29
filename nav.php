@@ -55,7 +55,7 @@
 <script>
 window.onscroll = function() {responsiveNav()};
 
-var navbar = document.getElementByTagName("nav");
+var navbar = document.getElementById("navbar");
 var sticky = navbar.offsetTop;
 
 function responsiveNav() {
