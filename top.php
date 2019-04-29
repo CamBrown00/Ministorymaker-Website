@@ -30,7 +30,8 @@ error_reporting(E_ALL);
           $(window).load(function() {
             $('.flexslider').flexslider({
                 animation: "slide",
-                slideshow: "false"
+                slideshow: false,
+                animationLoop: false
             });
           });
         </script>

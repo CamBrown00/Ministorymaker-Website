@@ -16,6 +16,47 @@
         include('gallerySlider.php');
     ?>
 </section>
+<button id="extender-button" type="button">Read More</button>
+
+<script>
+    var stories = document.getElementsByClassName("flex-caption");
+    var button = document.getElementById("extender-button");
+    
+    button.onclick = function(){
+        
+        //Change the id of the p element containing the story upon button press
+        for (var i = 0; i < stories.length; i++){
+            if (stories[i].id === "story-content-max"){
+                stories[i].id = "story-content-min";
+                button.innerHTML = "Read More";   
+            }else{
+                stories[i].id = "story-content-max";
+                button.innerHTML = "Minimize";
+            }
+        }
+        
+        //Prevent slider modifications from resetting
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: false,
+                animationLoop: false
+            });
+        });
+    };
+    
+    //Cause button to fade as user scrolls
+    $(window).scroll(function(){
+        var top = $(window).scrollTop();
+        var fThresh = $(document).height()/3;
+        var button = $("#extender-button").eq(0);
+        var opacity = (top - fThresh)/fThresh;
+        
+        button.css("opacity", opacity);
+    });
+    
+    
+</script>
 
 <?php
     include('footer.php');
