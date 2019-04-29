@@ -15,22 +15,43 @@ if ($debug) {
     print '</pre>';
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+print PHP_EOL . '<!-- SECTION: 1b0. story variables -->' . PHP_EOL;
 
-print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
+// Open, read, and close story sentences to select random sentences
+include ('read-sentences-data.php');
+?>
+
+<?php
+// Initialize sentences variables to create random mini story
+$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold eah s's author/title/s details
+$sentence1 = $sentenceLines[1][4];
+$sentence2 = $sentenceLines[2][4];
+
+if ($debug) {
+    print '<p><pre>' . $sentence0 . '</p>';
+    print '<p>' . $sentence1 . '</p>';
+    print '<p>' . $sentence2 . '</pre></p>';
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+print PHP_EOL . '<!-- SECTION: 1b. form variables -->' . PHP_EOL;
 // Initialize variables one for each form element
 // in the order they appear on the form
 
 $yourSentence = "";
+$name = "";
 $email = "";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
+print PHP_EOL . '<!-- SECTION: 1c. form error flags -->' . PHP_EOL;
 
 // Initialize Error Flags, one for each form element we validate
 // in the order they appear on the form
 
 $yourSentenceERROR = false;
+$nameERROR = false;
 $emailERROR = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +88,7 @@ if (isset($_POST["btnSubmit"])) {
     // form. Note it is best to follow the same order they appear on the form.
     
     $yourSentence = htmlentities($_POST["txtYourSentence"], ENT_QUOTES, "UTF-8");
-   
+    $name = htmlentities($_POST["txtName"], ENT_QUOTES, "UTF-8");
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,10 +102,11 @@ if (isset($_POST["btnSubmit"])) {
     // will be in the order they appear. errorMsg will be displayed on the form
     // see section 3b. The error flag ($emailERROR) will be used in section 3c.
     
-    // ***Function*** to check for valid sentences that removes digits and 
-    // underscores; allows multiple words; allows characters: [',-,.,!,?,,,"]; 
-    // and supports extended ASCII characters.
-    // ($pattern inspiration from: https://andrewwoods.net/blog/2018/name-validation-regex/)
+    /***Function*** to check for valid sentences that removes digits and 
+     * underscores; allows multiple words; allows characters: [',-,.,!,?,,,"]; 
+     * and supports extended ASCII characters.
+     * ($pattern inspiration from: https://andrewwoods.net/blog/2018/name-validation-regex/)
+     */
     
     function verifySentence($sentence) { 
         $pattern = '/^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+([\ A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+)*/u'; 
@@ -94,12 +116,31 @@ if (isset($_POST["btnSubmit"])) {
         return false; 
     }
     
+    /***Function*** to check for valid names that can include alphanumeric characters,
+     * apostrophes, hyphens, periods, and extended ASCII characters.
+     */
+    function verifyName($name) { 
+        $pattern = '/^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.]+/u'; 
+        if (preg_match($pattern, $name)) {
+            return true; 
+        } 
+        return false; 
+    }
+    
     if ($yourSentence == "") { // first check if empty
         $errorMsg[] = "Finish the story with your own sentence!";
         $yourSentence = true;
     } elseif (!verifySentence($yourSentence)) { // then check that it only contains accepted characters
-        $errorMsg[] = "Oops, only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
+        $errorMsg[] = "Only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
         $yourSentenceERROR = true;
+    }
+    
+    if (strlen($name) == 1) { // check that names are longer than one character
+        $errorMsg[] = "Let's make your name longer than one character.";
+        $nameERROR = true;
+    } elseif (!empty($name) && !verifyName($name)) {  // only verify non-empty names, let empty names through
+        $errorMsg[] = "Your name appears to have extra characters.";
+        $nameERROR = true;
     }
     
     if ($email == "") {
@@ -130,10 +171,10 @@ if (isset($_POST["btnSubmit"])) {
         $dataRecord = array();
         
         // assign values to the dataRecord array
-        $dataRecord[] = $sentence1;
-        $dataRecord[] = $sentence2;
-        $dataRecord[] = $sentence3;
-        $dataRecord[] = $yourSentence;
+        $story = $sentence0 . ' ' . $sentence1 . ' ' . $sentence2 . ' '
+                . $yourSentence;
+        $dataRecord[] = $story;
+        $dataRecord[] = $name;
         
         // set up csv file
         $myFolder = 'data/';
@@ -161,26 +202,26 @@ if (isset($_POST["btnSubmit"])) {
         $message = '<h2 class="">Your random mini story is complete!</h2>'
                 . '<h4>Here is the story you made: </h4>';
         
-        foreach ($_POST as $htmlName => $value) {
-            
-            // remove "submit" value from mail message (ignore btnSubmit key in POST array)
-            if ($htmlName != btnSubmit) {
-                
-                $message .= '<p>';
-                // breaks up the form names into words. For example,
-                // txtFirstName becomes First Name
-                $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
-
-                foreach($camelCase as $oneWord) {
-                    $message .= $oneWord . ' ';
-                }
-
-                $message .= ' = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . '</p>';
-            }
+        // append story sentences to message
+        $message .= '<div class="storyContainer">';
+        $message .= '<p>' . $sentence0 . '</p>'
+                . '<p>' . $sentence1 . '</p>'
+                . '<p>' . $sentence2 . '</p>';
+        
+        // append your sentence to message
+        $message .= '<p>' . htmlentities($yourSentence, ENT_QUOTES, "UTF-8") . '</p>';
+        $message .= '</div>';
+        
+        // append author as name or Anonymous
+        if (!empty($name)){
+            $message .= '<p>By ' . htmlentities($name, ENT_QUOTES, "UTF-8") . '</p>';
+        } else {
+            $message .= '<p>By Anonymous</p>';
         }
         
-        $message .= '<h4>The end.</h4>';
-        
+        // append email for user reference
+        $message .= '<p>Sent to: ' . htmlentities($email, ENT_QUOTES, "UTF-8") . '</p>';
+      
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         print PHP_EOL . '<!-- SECTION: 2g Mail to user -->' . PHP_EOL;
@@ -225,8 +266,8 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        if (!$mailed) {
            print '<span id="notMailed">not </span>';
        } 
-       print 'been sent:</p>';
-       print '<p>To: ' . $email . '</p>';
+       print 'been sent to:</p>';
+       print '<p>' . $email . '</p>';
 
        print '<article id="message" class="">';
        print $message;
@@ -294,20 +335,20 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
                 <fieldset class = "contact">
                 <legend>Your name and email:</legend>
-                <!--<p>
+                <p>
                     <label class="" for="txtName">Name</label>
-                    <input autofocus
+                        <input autofocus
                            <?php if ($nameERROR) print 'class="mistake"'; ?>
                            id="txtName"
                            maxlength="45"
                            name="txtName"
                            onfocus="this.select()"
-                           placeholder="Enter your name"
+                           placeholder="Enter your name or leave blank to be Anonymous"
                            tabindex="100"
                            type="text"
                            value="<?php print $name; ?>"
                     >   
-                </p>-->
+                </p>
 
                 <p>
                     <label class="required" for="txtEmail">Email:</label>
@@ -327,8 +368,8 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
         
         <fieldset class="buttons">
-                <legend>Save Your Story</legend>
-                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Submit">
+                <legend>Save your story</legend>
+                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Save Your Story">
         </fieldset> <!-- end buttons -->
 
     </form>
