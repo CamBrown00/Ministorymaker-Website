@@ -23,6 +23,8 @@
     var button = document.getElementById("extender-button");
     
     button.onclick = function(){
+        
+        //Change the id of the p element containing the story upon button press
         for (var i = 0; i < stories.length; i++){
             if (stories[i].id === "story-content-max"){
                 stories[i].id = "story-content-min";
@@ -32,6 +34,8 @@
                 button.innerHTML = "Minimize";
             }
         }
+        
+        //Prevent slider modifications from resetting
         $(window).load(function() {
             $('.flexslider').flexslider({
                 animation: "slide",
@@ -40,6 +44,16 @@
             });
         });
     };
+    
+    //Cause button to fade as user scrolls
+    $(window).scroll(function(){
+        var top = $(window).scrollTop();
+        var fThresh = $(document).height()/3;
+        var button = $("#extender-button").eq(0);
+        var opacity = (top - fThresh)/fThresh;
+        
+        button.css("opacity", opacity);
+    });
     
     
 </script>

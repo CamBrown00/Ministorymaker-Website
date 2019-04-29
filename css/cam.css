@@ -61,14 +61,21 @@
 }
 
 #story-content-max{
-    max-height: none;
+    max-height: 100%;
 }
 
 #extender-button{
     display: block;
-    margin: 3% auto;
+    position: fixed;
+    width: 150px;
+    top: 80%;
+    right: 44.5%;
+    text-align: center;
+    margin: 2% 0 0 -2%;
     padding: .65%;
+    opacity: 0;
     font-size: 1.2em;
     color: #FFF;
     background-color: #000;
+    transition: opacity, .3s;
 }
