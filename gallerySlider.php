@@ -45,7 +45,7 @@ if ($file) {
     include('functions.php');
     
     /******* Create Slides *******/
-    $slideCount = 2;
+    $slideCount = 10;
 
     //Print randomized stories
     print "<ul class='slides'>";

@@ -1,4 +1,11 @@
 /* Gallery Slider */ 
+.flexslider{
+    width: 92%;
+    margin: auto;
+    background: rgba(0,0,0,.12);
+    border-radius: 10px;
+}
+
 .flex-caption{
   width: 100%;
   padding: 2.5%;
@@ -21,14 +28,8 @@
     
 }
 
-.flexslider{
-    width: 92%;
-    margin: auto;
-    background: rgba(0,0,0,.12);
-}
-
 .flexslider img{
-    max-width: 90%;
+    max-width: 1000px;
     margin: auto;
 }
 
