@@ -21,6 +21,7 @@ print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
 // in the order they appear on the form
 
 $yourSentence = "";
+$name = "";
 $email = "";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,6 +32,7 @@ print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
 // in the order they appear on the form
 
 $yourSentenceERROR = false;
+$nameERROR = false;
 $emailERROR = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +69,7 @@ if (isset($_POST["btnSubmit"])) {
     // form. Note it is best to follow the same order they appear on the form.
     
     $yourSentence = htmlentities($_POST["txtYourSentence"], ENT_QUOTES, "UTF-8");
-   
+    $name = htmlentities($_POST["txtName"], ENT_QUOTES, "UTF-8");
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,10 +83,11 @@ if (isset($_POST["btnSubmit"])) {
     // will be in the order they appear. errorMsg will be displayed on the form
     // see section 3b. The error flag ($emailERROR) will be used in section 3c.
     
-    // ***Function*** to check for valid sentences that removes digits and 
-    // underscores; allows multiple words; allows characters: [',-,.,!,?,,,"]; 
-    // and supports extended ASCII characters.
-    // ($pattern inspiration from: https://andrewwoods.net/blog/2018/name-validation-regex/)
+    /***Function*** to check for valid sentences that removes digits and 
+     * underscores; allows multiple words; allows characters: [',-,.,!,?,,,"]; 
+     * and supports extended ASCII characters.
+     * ($pattern inspiration from: https://andrewwoods.net/blog/2018/name-validation-regex/)
+     */
     
     function verifySentence($sentence) { 
         $pattern = '/^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+([\ A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.\!\?\,\"]+)*/u'; 
@@ -94,12 +97,31 @@ if (isset($_POST["btnSubmit"])) {
         return false; 
     }
     
+    /***Function*** to check for valid names that can include alphanumeric characters,
+     * apostrophes, hyphens, periods, and extended ASCII characters.
+     */
+    function verifyName($name) { 
+        $pattern = '/^[A-Za-z\x{00C0}-\x{00FF}][A-Za-z\x{00C0}-\x{00FF}\'\-\.]+/u'; 
+        if (preg_match($pattern, $name)) {
+            return true; 
+        } 
+        return false; 
+    }
+    
     if ($yourSentence == "") { // first check if empty
         $errorMsg[] = "Finish the story with your own sentence!";
         $yourSentence = true;
     } elseif (!verifySentence($yourSentence)) { // then check that it only contains accepted characters
-        $errorMsg[] = "Oops, only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
+        $errorMsg[] = "Only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
         $yourSentenceERROR = true;
+    }
+    
+    if (strlen($name) == 1) { // check that names are longer than one character
+        $errorMsg[] = "Let's make your name longer than one character.";
+        $nameERROR = true;
+    } elseif (!empty($name) && !verifyName($name)) {  // only verify non-empty names, let empty names through
+        $errorMsg[] = "Your name appears to have extra characters.";
+        $nameERROR = true;
     }
     
     if ($email == "") {
@@ -134,6 +156,7 @@ if (isset($_POST["btnSubmit"])) {
         $dataRecord[] = $sentence2;
         $dataRecord[] = $sentence3;
         $dataRecord[] = $yourSentence;
+        $dataRecord[] = $name;
         
         // set up csv file
         $myFolder = 'data/';
@@ -294,20 +317,20 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
                 <fieldset class = "contact">
                 <legend>Your name and email:</legend>
-                <!--<p>
+                <p>
                     <label class="" for="txtName">Name</label>
-                    <input autofocus
+                        <input autofocus
                            <?php if ($nameERROR) print 'class="mistake"'; ?>
                            id="txtName"
                            maxlength="45"
                            name="txtName"
                            onfocus="this.select()"
-                           placeholder="Enter your name"
+                           placeholder="Optional: Enter your name"
                            tabindex="100"
                            type="text"
                            value="<?php print $name; ?>"
                     >   
-                </p>-->
+                </p>
 
                 <p>
                     <label class="required" for="txtEmail">Email:</label>
@@ -327,8 +350,8 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
         
         <fieldset class="buttons">
-                <legend>Save Your Story</legend>
-                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Submit">
+                <legend>Save your story</legend>
+                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Save Your Story">
         </fieldset> <!-- end buttons -->
 
     </form>
