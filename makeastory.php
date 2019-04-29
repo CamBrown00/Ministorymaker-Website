@@ -15,8 +15,19 @@ if ($debug) {
     print '</pre>';
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+print PHP_EOL . '<!-- SECTION: 1b0. story variables -->' . PHP_EOL;
+// Initialize sentences variables to create random mini story
 
-print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
+$sentence0 = "";
+$sentence1 = "";
+$sentence2 = "";
+
+// open, read, and close story sentences
+include ('read-sentences-data.php');
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+print PHP_EOL . '<!-- SECTION: 1b. form variables -->' . PHP_EOL;
 // Initialize variables one for each form element
 // in the order they appear on the form
 
@@ -26,7 +37,7 @@ $email = "";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
+print PHP_EOL . '<!-- SECTION: 1c. form error flags -->' . PHP_EOL;
 
 // Initialize Error Flags, one for each form element we validate
 // in the order they appear on the form
@@ -152,10 +163,9 @@ if (isset($_POST["btnSubmit"])) {
         $dataRecord = array();
         
         // assign values to the dataRecord array
-        $dataRecord[] = $sentence1;
-        $dataRecord[] = $sentence2;
-        $dataRecord[] = $sentence3;
-        $dataRecord[] = $yourSentence;
+        $story = $sentence0 . ' ' . $sentence1 . ' ' . $sentence2 . ' '
+                . $yourSentence;
+        $dataRecord[] = $story;
         $dataRecord[] = $name;
         
         // set up csv file
@@ -184,26 +194,26 @@ if (isset($_POST["btnSubmit"])) {
         $message = '<h2 class="">Your random mini story is complete!</h2>'
                 . '<h4>Here is the story you made: </h4>';
         
-        foreach ($_POST as $htmlName => $value) {
-            
-            // remove "submit" value from mail message (ignore btnSubmit key in POST array)
-            if ($htmlName != btnSubmit) {
-                
-                $message .= '<p>';
-                // breaks up the form names into words. For example,
-                // txtFirstName becomes First Name
-                $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
-
-                foreach($camelCase as $oneWord) {
-                    $message .= $oneWord . ' ';
-                }
-
-                $message .= ' = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . '</p>';
-            }
+        // append story sentences to message
+        $message .= '<div class="storyContainer">';
+        $message .= '<p>' . $sentence0 . '</p>'
+                . '<p>' . $sentence1 . '</p>'
+                . '<p>' . $sentence2 . '</p>';
+        
+        // append your sentence to message
+        $message .= '<p>' . htmlentities($yourSentence, ENT_QUOTES, "UTF-8") . '</p>';
+        $message .= '</div>';
+        
+        // append author as name or Anonymous
+        if (!empty($name)){
+            $message .= '<p>By ' . htmlentities($name, ENT_QUOTES, "UTF-8") . '</p>';
+        } else {
+            $message .= '<p>By Anonymous</p>';
         }
         
-        $message .= '<h4>The end.</h4>';
-        
+        // append email for user reference
+        $message .= '<p>Sent to: ' . htmlentities($email, ENT_QUOTES, "UTF-8") . '</p>';
+      
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         print PHP_EOL . '<!-- SECTION: 2g Mail to user -->' . PHP_EOL;
@@ -248,8 +258,8 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        if (!$mailed) {
            print '<span id="notMailed">not </span>';
        } 
-       print 'been sent:</p>';
-       print '<p>To: ' . $email . '</p>';
+       print 'been sent to:</p>';
+       print '<p>' . $email . '</p>';
 
        print '<article id="message" class="">';
        print $message;
@@ -325,7 +335,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                            maxlength="45"
                            name="txtName"
                            onfocus="this.select()"
-                           placeholder="Optional: Enter your name"
+                           placeholder="Enter your name or leave blank to be Anonymous"
                            tabindex="100"
                            type="text"
                            value="<?php print $name; ?>"
