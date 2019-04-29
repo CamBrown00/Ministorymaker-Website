@@ -1,13 +1,13 @@
 <?php
 // ****************** Open sentences data ******************
-$debug = false;
+$debug = true;
 if (isset($_GET["debug"])) {
     $debug = true;
 }
 
 $numSentences = 3;
 
-$myFolder = 'storiesParsing';
+$myFolder = 'storiesParsing/';
 
 $myFileName = 'story-sentences';
 
@@ -47,8 +47,10 @@ if ($file) {
     
     // Count number of lines in file
     $linecount = 0;
-    while (fgets($this->file) !== false) $linecount++;
-    
+    while (fgets($this->file) !== false) {
+        $linecount++;
+    }
+
     // Select random lines from file and store in array
     $sentenceLines = [];
     $spl = new SplFileObject($filename); // SplFileObject let's us seek out and 

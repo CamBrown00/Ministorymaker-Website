@@ -16,14 +16,22 @@ if ($debug) {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 print PHP_EOL . '<!-- SECTION: 1b0. story variables -->' . PHP_EOL;
-// Initialize sentences variables to create random mini story
 
-$sentence0 = "";
-$sentence1 = "";
-$sentence2 = "";
-
-// open, read, and close story sentences
+// Open, read, and close story sentences to select random sentences
 include ('read-sentences-data.php');
+?>
+
+<?php
+// Initialize sentences variables to create random mini story
+$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold eah s's author/title/s details
+$sentence1 = $sentenceLines[1][4];
+$sentence2 = $sentenceLines[2][4];
+
+if ($debug) {
+    print '<p><pre>' . $sentence0 . '</p>';
+    print '<p>' . $sentence1 . '</p>';
+    print '<p>' . $sentence2 . '</pre></p>';
+}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
