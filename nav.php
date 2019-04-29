@@ -30,7 +30,7 @@
         print '<a href="gallery.php">Gallery</a>';
         print '</li>';
         
-        /* About Page */
+        /* About Page */ 
         print '<li class="';
         if ($path_parts['filename'] == 'about') {
             print 'activePage';
