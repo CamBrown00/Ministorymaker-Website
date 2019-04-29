@@ -1,6 +1,6 @@
 <!--          Beginning of Nav          -->
-<nav>
-    <ol>
+<nav id="navbar">
+    <ul>
         <?php
 
         /* Home Page */
@@ -14,11 +14,11 @@
 
         /* Make a Story */
         print '<li class="';
-        if ($path_parts['filename'] == 'form') {
+        if ($path_parts['filename'] == 'makeastory') {
             print 'activePage';
         }
         print '">';
-        print '<a href="form.php">Make a Story</a>';
+        print '<a href="makeastory.php">Make a Story</a>';
         print '</li>';
         
         /* Gallery Page */
@@ -30,13 +30,13 @@
         print '<a href="gallery.php">Gallery</a>';
         print '</li>';
         
-        /* About Page */
+        /* About Page */ 
         print '<li class="';
-        if ($path_parts['filename'] == 'sources') {
+        if ($path_parts['filename'] == 'about') {
             print 'activePage';
         }
         print '">';
-        print '<a href="blank.php">About Us</a>';
+        print '<a href="about.php">About Us</a>';
         print '</li>';
         
         /* Feedback Page */
@@ -48,6 +48,21 @@
         print '<a href="feedback.php">Feedback</a>';
         print '</li>';
         ?>
-    </ol>
+    </ul>
 </nav>
 <!--          End of Nav          -->
+
+<script>
+window.onscroll = function() {responsiveNav()};
+
+var navbar = document.getElementByTagName("nav");
+var sticky = navbar.offsetTop;
+
+function responsiveNav() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+}
+</script>
