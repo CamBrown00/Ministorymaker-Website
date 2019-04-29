@@ -23,7 +23,7 @@ include ('read-sentences-data.php');
 
 <?php
 // Initialize sentences variables to create random mini story
-$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold eah s's author/title/s details
+$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold each author/title/s details
 $sentence1 = $sentenceLines[1][4];
 $sentence2 = $sentenceLines[2][4];
 
