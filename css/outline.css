@@ -115,34 +115,6 @@ img {
     max-width: 300px;
 }
 
-/* Header */
-header img{
-    float: left;
-}
-
-header h1, header h3{
-    clear: left;
-    margin: auto;
-    text-align: center;
-}
-
-/* Nav */
-nav ol{
-    width: 90%;
-    margin: 2% 0;
-    text-align: center;
-}
-
-nav ol li{
-    border: 2px solid #000;
-    border-width: 0px 1px 0px 1px;
-    padding: 1px;
-    text-align: center;
-    width: 10%;
-    margin: auto;
-    display: inline-block;
-}
-
 /* Stories */
 #index .stories{
     padding: 4%;
