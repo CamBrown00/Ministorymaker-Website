@@ -32,11 +32,11 @@
         
         /* About Page */
         print '<li class="';
-        if ($path_parts['filename'] == 'sources') {
+        if ($path_parts['filename'] == 'about') {
             print 'activePage';
         }
         print '">';
-        print '<a href="blank.php">About Us</a>';
+        print '<a href="about.php">About Us</a>';
         print '</li>';
         
         /* Feedback Page */
