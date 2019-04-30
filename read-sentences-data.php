@@ -61,13 +61,14 @@ if ($file) {
                                          // read a specific line
                                          // without storing entire csv file in memory  
     
-    if ($debug) {print '<p>spl file object created</p>';}
+    if ($debug) {print '<p>Spl file object created.</p>';}
     
     $lineNumber = 0;
-    for ($s = 1; $s <= $linecount; $s++) {
-           $lineNumber = random_int(1,$linecount-1);
-           $spl->seek($lineNumber); // seek line at specific row
-           $sentenceLines[] = $spl->current(); // append line data to array
+    
+    for ($s = 1; $s <= $numSentences; $s++) {
+        $lineNumber = mt_rand(1, $linecount-1);
+        $spl->seek($lineNumber); // seek line at specific row
+        $sentenceLines[] = $spl->current(); // append line data to array
     }
     
     if ($debug) {
