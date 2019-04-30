@@ -1,5 +1,7 @@
 <?php
 include 'top.php';
+
+$debug = false;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 print PHP_EOL . '<!-- SECTION: 1 Initialize variables -->' . PHP_EOL;
@@ -19,19 +21,15 @@ print PHP_EOL . '<!-- SECTION: 1b0. story variables -->' . PHP_EOL;
 
 // Open, read, and close story sentences to select random sentences
 include ('read-sentences-data.php');
-?>
 
-<?php
 // Initialize sentences variables to create random mini story
-$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold each author/title/s details
-$sentence1 = $sentenceLines[1][4];
-$sentence2 = $sentenceLines[2][4];
+$line0 = str_getcsv($sentenceLines[0]);
+$line1 = str_getcsv($sentenceLines[1]);
+$line2 = str_getcsv($sentenceLines[2]);
 
-if ($debug) {
-    print '<p><pre>' . $sentence0 . '</p>';
-    print '<p>' . $sentence1 . '</p>';
-    print '<p>' . $sentence2 . '</pre></p>';
-}
+$sentence0 = $line0[4];//NOTE: later make each of these arrays that hold each author/title/s details
+$sentence1 = $line1[4];
+$sentence2 = $line2[4];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -274,7 +272,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        print '</article>';
     } 
     else {
-        print '<h1 class="">Make a story!</h1>';
+        print '<h1 class=""><a href="makeastory.php">Make a story!</a></h1>';
         print '<p class="">Press the "Make a Story" button, then finish the story with your own sentence. If you want to save your story: enter your email, and press "Save Your Story" to receive a copy.</p>';
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -318,6 +316,12 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        method = "post"
        class="">
         
+        <section id="randomStory" class="">
+            <p><?php print $sentence0 ?></p>
+            <p><?php print $sentence1 ?></p>
+            <p><?php print $sentence2 ?></p>
+        </section>
+        
         <fieldset class="textarea sentence">
             <legend>Finish the story:</legend>
             <p>
@@ -336,7 +340,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                 <fieldset class = "contact">
                 <legend>Your name and email:</legend>
                 <p>
-                    <label class="" for="txtName">Name</label>
+                    <label class="" for="txtName">Name:</label>
                         <input autofocus
                            <?php if ($nameERROR) print 'class="mistake"'; ?>
                            id="txtName"
