@@ -47,16 +47,24 @@ if ($file) {
     
     // Count number of lines in file
     $linecount = 0;
-    while (fgets($this->file) !== false) {
+    if ($debug) {print '<p>Initialized linecount variable.</p>';}
+    
+    while (fgets($file) !== false) {
         $linecount++;
     }
+    
+    if ($debug) {print '<p>Finished counting ' . $linecount . ' lines.</p>';}
 
     // Select random lines from file and store in array
     $sentenceLines = [];
     $spl = new SplFileObject($filename); // SplFileObject let's us seek out and 
                                          // read a specific line
                                          // without storing entire csv file in memory  
-    for ($s = 1; $s <= $numSentences; $s++) {
+    
+    if ($debug) {print '<p>spl file object created</p>';}
+    
+    $lineNumber = 0;
+    for ($s = 1; $s <= $linecount; $s++) {
            $lineNumber = random_int(1,$linecount-1);
            $spl->seek($lineNumber); // seek line at specific row
            $sentenceLines[] = $spl->current(); // append line data to array
