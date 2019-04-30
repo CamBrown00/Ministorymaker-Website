@@ -316,6 +316,12 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        method = "post"
        class="">
         
+        <section id="randomStory" class="">
+            <p><?php print $sentence0 ?></p>
+            <p><?php print $sentence1 ?></p>
+            <p><?php print $sentence2 ?></p>
+        </section>
+        
         <fieldset class="textarea sentence">
             <legend>Finish the story:</legend>
             <p>
@@ -334,7 +340,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                 <fieldset class = "contact">
                 <legend>Your name and email:</legend>
                 <p>
-                    <label class="" for="txtName">Name</label>
+                    <label class="" for="txtName">Name:</label>
                         <input autofocus
                            <?php if ($nameERROR) print 'class="mistake"'; ?>
                            id="txtName"
