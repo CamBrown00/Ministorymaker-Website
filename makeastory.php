@@ -272,7 +272,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
        print '</article>';
     } 
     else {
-        print '<h1 class="">Make a story!</h1>';
+        print '<h1 class=""><a href="makeastory.php">Make a story!</a></h1>';
         print '<p class="">Press the "Make a Story" button, then finish the story with your own sentence. If you want to save your story: enter your email, and press "Save Your Story" to receive a copy.</p>';
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
