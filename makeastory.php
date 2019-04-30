@@ -1,5 +1,7 @@
 <?php
 include 'top.php';
+
+$debug = false;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 print PHP_EOL . '<!-- SECTION: 1 Initialize variables -->' . PHP_EOL;
@@ -19,19 +21,15 @@ print PHP_EOL . '<!-- SECTION: 1b0. story variables -->' . PHP_EOL;
 
 // Open, read, and close story sentences to select random sentences
 include ('read-sentences-data.php');
-?>
 
-<?php
 // Initialize sentences variables to create random mini story
-$sentence0 = $sentenceLines[0][4]; //NOTE: later make each of these arrays that hold each author/title/s details
-$sentence1 = $sentenceLines[1][4];
-$sentence2 = $sentenceLines[2][4];
+$line0 = str_getcsv($sentenceLines[0]);
+$line1 = str_getcsv($sentenceLines[1]);
+$line2 = str_getcsv($sentenceLines[2]);
 
-if ($debug) {
-    print '<p><pre>' . $sentence0 . '</p>';
-    print '<p>' . $sentence1 . '</p>';
-    print '<p>' . $sentence2 . '</pre></p>';
-}
+$sentence0 = $line0[4];//NOTE: later make each of these arrays that hold each author/title/s details
+$sentence1 = $line1[4];
+$sentence2 = $line2[4];
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
