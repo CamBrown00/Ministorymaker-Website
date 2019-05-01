@@ -73,7 +73,7 @@ if ($file) {
     
     if ($debug) {
         print '<p>Finished reading sentences data. File closed.</p>';
-        print '<p>My data array:<p><pre> ';
+        print '<p>My data array of sentenceLines:<p><pre> ';
         print_r($sentenceLines);
         print '</pre></p>';
     }

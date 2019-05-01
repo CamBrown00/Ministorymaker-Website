@@ -85,6 +85,10 @@ if (isset($_POST["btnSubmit"])) {
     // remove any potential JavaScript or html code from users input on the
     // form. Note it is best to follow the same order they appear on the form.
     
+    $sentence0 = htmlentities($_POST["hidSentence0"], ENT_QUOTES, "UTF-8");
+    $sentence1 = htmlentities($_POST["hidSentence1"], ENT_QUOTES, "UTF-8");
+    $sentence2 = htmlentities($_POST["hidSentence2"], ENT_QUOTES, "UTF-8");
+            
     $yourSentence = htmlentities($_POST["txtYourSentence"], ENT_QUOTES, "UTF-8");
     $name = htmlentities($_POST["txtName"], ENT_QUOTES, "UTF-8");
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
@@ -311,16 +315,36 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
          */
         ?>
     
+   <section id="randomStory" class="">
+            <p><?php print $sentence0 ?></p>
+            <p><?php print $sentence1 ?></p>
+            <p><?php print $sentence2 ?></p>
+    </section>     
+        
     <form action = "<?php print $phpSelf; ?> "
        id = "frmStory"
        method = "post"
        class="">
         
-        <section id="randomStory" class="">
-            <p><?php print $sentence0 ?></p>
-            <p><?php print $sentence1 ?></p>
-            <p><?php print $sentence2 ?></p>
-        </section>
+        <input class="hiddenSentence"
+            id="hidSentence0"
+            name="hidSentence0"
+            type="hidden"
+            value="<?php print $sentence0; ?>"
+        >
+        <input class="hiddenSentence"
+            id="hidSentence1"
+            name="hidSentence1"
+            type="hidden"
+            value="<?php print $sentence1; ?>"
+        > 
+        <input class="hiddenSentence"
+            id="hidSentence2"
+            name="hidSentence2"
+            type="hidden"
+            value="<?php print $sentence2; ?>"
+        >   
+        
         
         <fieldset class="textarea sentence">
             <legend>Finish the story:</legend>
