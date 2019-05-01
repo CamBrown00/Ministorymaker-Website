@@ -279,8 +279,10 @@ html[xmlns] .flexslider .slides {
     opacity: 1;
     right: 10px;
   }
-  .flex-control-nav {
+  .flex-control-nav{
     width: 100%;
+    padding: 3% 0 3% 0;
+    position: static;
     text-align: center;
   }
 }

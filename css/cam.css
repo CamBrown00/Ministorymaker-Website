@@ -101,6 +101,7 @@
 
 @media only screen and (max-width: 600px) {
     #extender-button{
-        top: 85%;
+        top: 82%;
+        padding: 3% 0% 4% 0%;
     }
 }

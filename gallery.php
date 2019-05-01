@@ -60,7 +60,7 @@
     //Cause button to fade as user scrolls
     $(window).scroll(function(){
         if (deviceIsMobile()){
-            fThresh = flx.clientHeight/5;
+            fThresh = flx.clientHeight/5.5;
         }
         else{
             fThresh = flx.clientHeight/3;
