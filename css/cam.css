@@ -158,14 +158,14 @@
     margin: 2% 3.5%;
     width: 40%;
     height: 290px;
-    background-color: #9bcfdc;
-    border-bottom: 3px solid #ffe19d;
+    border: 10px solid #D3DCF0;
+    border-width: 0px 0px 12px 0px;
 }
 
 .aboutDetails section h2{
     width: 100%;
     padding: 3% 0 3% 0;
-    background-color: #ffe19d;
+    background-color: #ffb9ed;
 }
 
 .aboutDetails section .aboutText{
@@ -195,7 +195,38 @@
 }
 
 .devBios{
-    clear: left;
+    width: 100%;
+    text-align: center;
+}
+
+.devBios section{
+    display: inline-block;
+    margin: 1%;
+    width: 28%;
+}
+
+.devBios h2{
+    margin: 6% 0 1.5% 0;
+    padding: 3%;
+    background-color: #ffdcbe;
+}
+
+.devBios h3{
+    background-color: #d3dcf0;
+    border-radius: 4px;
+    margin: auto;
+    width: 35%;
+}
+
+.devBios section p{
+    text-align: left;
+    width: 70%;
+    margin: auto;
+}
+
+.devBios section img{
+    margin: 2%;
+    width: 90%;
 }
 
 
