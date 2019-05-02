@@ -21,13 +21,13 @@
         print '<a href="makeastory.php">Make a Story</a>';
         print '</li>';
         
-        /* Gallery Page */
+        /* Read a Story Page */
         print '<li class="';
         if ($path_parts['filename'] == 'gallery') {
             print 'activePage';
         }
         print '">';
-        print '<a href="gallery.php">Gallery</a>';
+        print '<a href="gallery.php">Read a Story</a>';
         print '</li>';
         
         /* About Page */ 
@@ -36,7 +36,7 @@
             print 'activePage';
         }
         print '">';
-        print '<a href="about.php">About Us</a>';
+        print '<a href="about.php">About</a>';
         print '</li>';
         
         /* Feedback Page */

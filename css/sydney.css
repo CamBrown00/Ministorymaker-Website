@@ -12,32 +12,52 @@ and open the template in the editor.
 /*       NAV LAYOUT     */
 /************************/
 nav {
-    background-color: lightyellow;
-    margin-bottom: 1em;
+    margin: .1em 0 .1em 0;
     height: 60px;
+    transition: opacity, .5s;
 }
 nav ul {
     list-style-type: none;
     display: table;
     height: 100%;
     width: 100%;
-    margin: 0 auto;
 }
 nav li {
     display: table-cell;
     vertical-align: middle;
-    padding: 20px;
+    font-size: 1.25em;
+    border-collapse: separate;
     width: 20%;
     text-align: center;
+    background-color: #4e67c4;
+    border: solid #fff;
+    border-width: 0px 4px 0px 4px;
+    transition: background-color, font-size, .5s;
+}
+nav li:hover {
+    font-size: 1.35em;
+    background-color: #3ea2b9;
+    transition: background-color, font-size, .5s;
 }
 .sticky {
-    position: fixed;
+    position: sticky;
+    opacity: .99;
+    transition: opacity, .5s;
     top: 0;
     width: 100%;
 }
 
 nav .activePage {
-    background-color: lightgrey;
+    background-color: #9bcfdc;
+}
+nav .activePage:hover {
+    font-size: 1.25em;
+    background-color: #9bcfdc;
+}
+
+nav a {
+    font-family: "Roboto Condensed";
+    color: white;
 }
 
 /************************/
@@ -45,9 +65,10 @@ nav .activePage {
 /************************/
 
 body header {
-	  height: 200px;
-	  text-align: center;
-      background-color: lightgrey;
+    height: 200px;
+    margin-bottom: 1%;
+    text-align: center;
+    background-color: white;
 }
 
 #header-wrapper {
@@ -57,12 +78,14 @@ body header {
 }
 
 header h1 a {
-    font-size: 3em;
-    
+    font-family: Poppins;
+    font-size: 5em;
 }
 
 header h3 {
-    font-size: 1.3em;
+    margin-top: .5%;
+    font-family: Poppins;
+    font-size: 1.5em;
 }
 
 header .site-header {
