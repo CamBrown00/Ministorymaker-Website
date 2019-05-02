@@ -207,8 +207,9 @@
     width: 28%;
 }
 
-.devBios h2{
-    margin: 4% 0 1.5% 0;
+#about .devBios h2{
+    margin: 3% 0 1.5% 0;
+    font-size: 2.5em;
     padding: 3%;
     background-color: #ffe19f;
 }
@@ -246,9 +247,46 @@
         padding: 3% 0% 4% 0%;
     }
     
+    /***** About Page *****/
     .aboutDetails section{
         width: 100%;
-        margin: auto;
+        margin: 0 auto;
         display: block;
+        border-width: 0;
+    }
+    
+    #about .aboutDetails section h2{
+        font-size: 1.7em;
+        border-radius: 0;
+    }
+    
+    .aboutDetails section .aboutText{
+        width: 75%;
+        font-size: 1.1em;
+        line-height: 1.2em;
+    }
+    #about .devBios h2{
+        margin: 0% 0 10% 0;
+        font-size: 2.5em;
+        padding: 3%;
+        background-color: #ffe19f;
+    }
+    
+    .devBios h3{
+        width: 60%;
+    }
+    
+    .devBios section{
+        width: 80%;
+        margin: 0% 0 5% 0;
+    }
+    .devBios section p{
+        font-size: 1em;
+        width: 100%;
+        border-width: 0px;
+    }
+
+    .devBios section img{
+        width: 85%;
     }
 }
