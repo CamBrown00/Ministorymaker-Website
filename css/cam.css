@@ -1,4 +1,8 @@
-/* Gallery Slider */ 
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase|Neucha|Patrick+Hand|Poppins|Roboto+Condensed|Ubuntu');
+
+/****** Gallery Slider ******/ 
+
 .flexslider{
     width: 92%;
     margin: auto;
@@ -95,4 +99,118 @@
     font-size: 1.1em;
     border-color: #B3B3B3;
     border-width: 0px 1px 1px 1px;
+}
+
+
+/****** About Page ******/
+.introSection h1, #about h2, #about h3{
+    font-family: Poppins;
+    font-size: 2em;
+}
+
+#about p, #about .aboutDetails a, .aboutDetails li{
+    font-family: "Roboto Condensed";
+}
+
+#about .devBios h3{
+    font-family: Neucha;
+    
+}
+
+#about{
+    margin: 0;
+}
+
+.introSection{
+    width: 100%;
+    margin: 3% auto;
+    background-color: #ffe19d;
+    border-bottom: 15px solid #ffbc79;
+}
+
+.introHeading{
+    margin: auto;
+    padding: 2%;
+    background-color: #ffbc79;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.introSection .aboutText{
+    padding: 3%;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    text-align: center;
+    width: 85%;
+    margin: auto;
+}
+
+.aboutDetails{
+    width: 100%;
+    text-align: center;
+}
+
+.aboutDetails section{
+    display: inline-block;
+    vertical-align: top;
+    margin: 2% 3.5%;
+    width: 40%;
+    height: 290px;
+    background-color: #9bcfdc;
+    border-bottom: 3px solid #ffe19d;
+}
+
+.aboutDetails section h2{
+    width: 100%;
+    padding: 3% 0 3% 0;
+    background-color: #ffe19d;
+}
+
+.aboutDetails section .aboutText{
+    width: 60%;
+    text-align: left;
+    margin: 5% auto 0% auto;
+    font-size: 1.15em;
+}
+
+.aboutDetails section .helpText{
+    margin: 8% 2% 0% 2%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.aboutDetails section ul{
+    list-style-type: initial;
+    padding: 5% 7%;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.aboutDetails section ul li{
+    padding: 3%;
+    text-align: left;
+}
+
+.devBios{
+    clear: left;
+}
+
+
+
+/*** Mobile Compatibility ***/
+
+@media only screen and (max-width: 600px) {
+    #extender-button{
+        top: 82%;
+        padding: 3% 0% 4% 0%;
+    }
+    
+    .aboutDetails section{
+        width: 100%;
+        margin: auto;
+        display: block;
+    }
 }
