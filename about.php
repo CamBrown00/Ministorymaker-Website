@@ -36,6 +36,28 @@
             Feel free to email us if you need any help!
         </a>
     </p>
+    <p class="aboutText">
+        We're always open to suggestions or criticism, so visit our 
+        <a href="feedback.php">feedback page</a> to submit a form if you'd like.
+    </p>
+</section>
+<section class="devBios">
+    <h2 class="heading2">The Developers</h2>
+    <h3>Sydney</h3>
+    <img class="bioImg" alt="" src="images/sydneyBio.png">
+    <p class="bio">
+        I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+    </p>
+    <h3>AriaRay</h3>
+    <img class="bioImg" alt="" src="images/ariaBio.png">
+    <p class="bio">
+        I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+    </p>
+    <h3>Cam</h3>
+    <img class="bioImg" alt="" src="images/camBio.png">
+    <p class="bio">
+        I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+    </p>
 </section>
 
 <?php
