@@ -109,7 +109,7 @@
 }
 
 #about p, #about .aboutDetails a, .aboutDetails li{
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #about .devBios h3{
@@ -122,7 +122,7 @@
 }
 
 .introSection{
-    width: 100%;
+    width: 95%;
     margin: 3% auto;
     background-color: #ffe19d;
     border-bottom: 15px solid #ffbc79;
@@ -293,7 +293,7 @@ h3.form-heading{
     border-radius: 10px;
     margin: 2% auto;
     text-align: center;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
     transition: background-color, .5s;
     box-shadow: 0px 4px #a7b6d8;
 }
@@ -326,7 +326,7 @@ h3.form-heading{
     width: 50%;
     text-align: center;
     margin: 2% auto;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #feedback ol{
@@ -345,6 +345,55 @@ h3.form-heading{
     box-shadow: 0px 3px #fcbcc1;
 }
 
+/********** Homepage **********/
+#index main{
+    margin: auto;
+    text-align: center;
+}
+
+#index article{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+#index article img{
+    max-width: 80%;
+    border: 10px solid #ffdcbe;
+}
+
+#index article p{
+    margin: 5%;
+    margin: 5% 2% 5% 4%;
+    text-align: left;
+    line-height: 1.5em;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.introSection{
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/******* Footer *******/
+footer{
+    width: 100%;
+    background-color: #ffe19f;
+    text-align: center;
+    font-family: "Roboto Condensed";
+    border: 4px solid #ffbc79;
+    border-width: 8px 0 0 0;
+}
+
+footer p{
+    padding: 1.5% 0.2% 1.25% 0;
+    display: inline-block;
+    font-size: .9em;
+}
+
+footer .author-intro{
+    padding: 1.5% .75% 0% 0;
+    font-size: 1em;
+}
 
 /*** Mobile Compatibility ***/
 
@@ -450,5 +499,37 @@ h3.form-heading{
         padding: 4%;
         box-shadow: 0px 3px #a7b6d8;
         font-size: 1em;
+    }
+    /********** Homepage **********/
+
+    #index article{
+        width: 100%;
+        margin: 4% auto;
+        text-align: center;
+        border: 8px solid #ffdcbe;
+        border-width: 0px 0px 0px 2px;
+        font-size: .98em;
+    }
+
+    #index article img{
+        display: none;
+    }
+
+    #index article p{
+        margin: 5%;
+        margin: 5% 2% 5% 4%;
+        text-align: left;
+        line-height: 1.5em;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .introSection{
+        font-family: "Roboto Condensed", sans-serif;
+        width: 100%;
+    }
+    
+    .introSection .aboutText{
+        font-size: 1.2em;
+        width: 95%;
     }
 }
