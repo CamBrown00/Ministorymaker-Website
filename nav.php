@@ -1,5 +1,5 @@
 <!--          Beginning of Nav          -->
-<nav id="navbar">
+<nav class="idle" id="navbar">
     <ul>
         <?php
 
@@ -21,13 +21,13 @@
         print '<a href="makeastory.php">Make a Story</a>';
         print '</li>';
         
-        /* Gallery Page */
+        /* Read a Story Page */
         print '<li class="';
         if ($path_parts['filename'] == 'gallery') {
             print 'activePage';
         }
         print '">';
-        print '<a href="gallery.php">Gallery</a>';
+        print '<a href="gallery.php">Read a Story</a>';
         print '</li>';
         
         /* About Page */ 
@@ -36,7 +36,7 @@
             print 'activePage';
         }
         print '">';
-        print '<a href="about.php">About Us</a>';
+        print '<a href="about.php">About</a>';
         print '</li>';
         
         /* Feedback Page */
@@ -51,18 +51,3 @@
     </ul>
 </nav>
 <!--          End of Nav          -->
-
-<script>
-window.onscroll = function() {responsiveNav()};
-
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function responsiveNav() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky");
-    } else {
-        navbar.classList.remove("sticky");
-    }
-}
-</script>

@@ -2,15 +2,6 @@
     include('top.php');
 ?>
 
-<section class="introSection">
-    <h1 class="introHeading">"What is Mini Story Maker?"</h1>
-    <p class ="aboutText">
-        We're a web site devoted to bringing an interactive aspect to reading
-        classic children's stories. If you're also interested in reading the 
-        original stories themselves, we got that covered too!
-    </p>
-</section>
-
 <main class="aboutDetails">
     <section>
     <h2>How to Use</h2>
@@ -66,7 +57,7 @@
         <h3>Cam</h3>
         <img class="bioImg" alt="" src="images/camBio.png">
         <p class="bio">
-            I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+            I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and styled most of the site.
         </p>
     </section>
 </main>

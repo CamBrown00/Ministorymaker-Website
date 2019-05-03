@@ -103,7 +103,7 @@
 
 
 /****** About Page ******/
-.introSection h1, #about h2, #about h3{
+.introSection h1, .introSection h2,.aboutDetails h2, .devBios h2, .devBios h3{
     font-family: Poppins;
     font-size: 2em;
 }
@@ -158,9 +158,9 @@
     margin: 2% 3.5%;
     width: 40%;
     height: 290px;
-    border: 10px solid #ffb9ed;
+    border: solid #ffe19f;
     border-radius: 0px 0px 3px 3px;
-    border-width: 0px 0px 6px 0px;
+    border-width: 0px 0px 4px 0px;
 }
 
 .aboutDetails section h2{
@@ -180,7 +180,7 @@
 }
 
 .aboutDetails section .helpText{
-    margin: 8% 2% 0% 2%;
+    margin: 6% 2% 0% 2%;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -227,8 +227,8 @@
     text-align: left;
     width: 70%;
     margin: auto;
+    padding: 3%;
     line-height: 1.5em;
-    border-bottom: 1px solid #a7b6d8;
 }
 
 .devBios section img{
@@ -238,6 +238,91 @@
     border-width: 0px 0 4px 0;
     width: 90%;
 }
+
+/********** Feedback Page **********/
+.form-heading{
+    margin: 2%;
+    font-family: Poppins;
+    text-align: center;
+    font-size: 2em;
+}
+
+h3.form-heading{
+    margin: 1%;
+    font-size: 1.2em;
+}
+
+#feedback form{
+    width: 80%;
+    background-color: #cdeded;
+    padding: 4%;
+    margin: auto;
+}
+
+#feedback fieldset{
+    width: 80%;
+    margin: 2% auto;
+    padding: 1%;
+}
+
+legend{
+    margin: auto;
+    font-family: Poppins;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+form p{
+    font-size: 1.5em;
+    text-align: left;
+    width: 50%;
+    margin: 6% auto 0 auto;
+    padding: 1.5%;
+    vertical-align: middle;
+    font-family: Poppins;
+    border: 4px solid #a7b6d8;
+    border-width: 0px 0px 0px 4px;
+}
+
+.textarea p{
+    margin: .5% auto;
+}
+
+input{
+    display: block;
+    width: 90%;
+    padding: 1.5%;
+    border-radius: 10px;
+    margin: 2% auto;
+    text-align: center;
+    font-family: "Roboto Condensed";
+    transition: background-color, .5s;
+    box-shadow: 0px 4px #a7b6d8;
+}
+
+input:focus{
+    background-color: #d3dcf0;
+    transition: background-color, .5s;
+}
+
+textarea{
+    width: 100%;
+    margin: 2%;
+    padding: 8%;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.button{
+    width: 20%;
+    padding: 1.5%;
+    border-radius: 8px;
+    box-shadow: 0px 2px #a7b6d8;
+    font-size: 1em;
+}
+
 
 
 
