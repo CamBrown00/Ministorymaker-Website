@@ -500,4 +500,36 @@ footer .author-intro{
         box-shadow: 0px 3px #a7b6d8;
         font-size: 1em;
     }
+    /********** Homepage **********/
+
+    #index article{
+        width: 100%;
+        margin: 4% auto;
+        text-align: center;
+        border: 8px solid #ffdcbe;
+        border-width: 0px 0px 0px 2px;
+        font-size: .98em;
+    }
+
+    #index article img{
+        display: none;
+    }
+
+    #index article p{
+        margin: 5%;
+        margin: 5% 2% 5% 4%;
+        text-align: left;
+        line-height: 1.5em;
+        font-family: "Roboto Condensed", sans-serif;
+    }
+
+    .introSection{
+        font-family: "Roboto Condensed", sans-serif;
+        width: 100%;
+    }
+    
+    .introSection .aboutText{
+        font-size: 1.2em;
+        width: 95%;
+    }
 }
