@@ -155,12 +155,9 @@
 .aboutDetails section{
     display: inline-block;
     vertical-align: top;
-    margin: 2% 3.5%;
+    margin: 8.5% 3.5% 0% 3.5%;
     width: 40%;
     height: 290px;
-    border: solid #ffe19f;
-    border-radius: 0px 0px 3px 3px;
-    border-width: 0px 0px 4px 0px;
 }
 
 .aboutDetails section h2{
@@ -235,7 +232,7 @@
     margin: 2%;
     border: solid #9bcfdc;
     border-radius: 2px;
-    border-width: 0px 0 4px 0;
+    border-width: 0px 0 8px 0;
     width: 90%;
 }
 
@@ -265,14 +262,14 @@ h3.form-heading{
     padding: 1%;
 }
 
-legend{
+#feedback legend{
     margin: auto;
     font-family: Poppins;
     font-size: 1.5em;
     font-weight: bold;
 }
 
-form p{
+#feedback form p{
     font-size: 1.5em;
     text-align: left;
     width: 50%;
@@ -281,14 +278,15 @@ form p{
     vertical-align: middle;
     font-family: Poppins;
     border: 4px solid #a7b6d8;
-    border-width: 0px 0px 0px 4px;
+    border-width: 0px 0px 0px 3px;
 }
 
-.textarea p{
+#feedback .textarea p{
     margin: .5% auto;
+    border-width: 0px;
 }
 
-input{
+#feedback input{
     display: block;
     width: 90%;
     padding: 1.5%;
@@ -300,12 +298,12 @@ input{
     box-shadow: 0px 4px #a7b6d8;
 }
 
-input:focus{
+#feedback input:focus{
     background-color: #d3dcf0;
     transition: background-color, .5s;
 }
 
-textarea{
+#feedback textarea{
     width: 100%;
     margin: 2%;
     padding: 8%;
@@ -315,15 +313,37 @@ textarea{
     text-align: center;
 }
 
-.button{
-    width: 20%;
+#feedback .button{
+    width: 15%;
     padding: 1.5%;
     border-radius: 8px;
-    box-shadow: 0px 2px #a7b6d8;
+    box-shadow: 0px 3px #a7b6d8;
     font-size: 1em;
 }
 
+#feedback #errors{
+    color: red;
+    width: 50%;
+    text-align: center;
+    margin: 2% auto;
+    font-family: "Roboto Condensed";
+}
 
+#feedback ol{
+    margin: 2%;
+    font-weight: bold;
+    list-style-type: square;
+}
+
+#feedback ol li{
+    padding: .5em;
+    font-size: 1.1em;
+}
+
+#feedback input.mistake{
+    background-color: #fedcde;
+    box-shadow: 0px 3px #fcbcc1;
+}
 
 
 /*** Mobile Compatibility ***/
@@ -378,5 +398,57 @@ textarea{
     .devBios section img{
         width: 85%;
         border-width: 0;
+    }
+    /********** Feedback Page **********/
+    .form-heading{
+        margin: 7%;
+        font-size: 1.8em;
+    }
+
+    h3.form-heading{
+        margin: 5%;
+        font-size: 1.1em;
+    }
+
+    #feedback form{
+        width: 100%;
+        background-color: #cdeded;
+        padding: 4%;
+        margin: auto;
+    }
+
+    #feedback fieldset{
+        width: 80%;
+        margin: 2% auto;
+        padding: 1%;
+    }
+
+    #feedback legend{
+        margin: auto;
+        font-family: Poppins;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    #feedback form p{
+        font-size: 1em;
+        width: 100%;
+        margin: 6% auto 0 auto;
+        padding: 3%;
+        border-width: 0px;
+    }
+
+    #feedback input{
+        width: 90%;
+        padding: 2%;
+        border-radius: 10px;
+        box-shadow: 0px 2px #a7b6d8;
+    }
+
+    #feedback .button{
+        width: 50%;
+        padding: 4%;
+        box-shadow: 0px 3px #a7b6d8;
+        font-size: 1em;
     }
 }
