@@ -13,21 +13,21 @@ and open the template in the editor.
 /************************/
 nav {
     margin: .1em 0 .1em 0;
-    height: 60px;
     transition: opacity, .5s;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 nav ul {
     list-style-type: none;
-    display: table;
     height: 100%;
     width: 100%;
 }
 nav li {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 1.25em;
-    border-collapse: separate;
+    display: inline-block;
     width: 20%;
+    padding: 1.5%;
+    font-size: 1.25em;
     text-align: center;
     background-color: #4e67c4;
     border: solid #fff;
@@ -38,13 +38,6 @@ nav li:hover {
     font-size: 1.35em;
     background-color: #3ea2b9;
     transition: background-color, font-size, .5s;
-}
-.sticky {
-    position: sticky;
-    opacity: .99;
-    transition: opacity, .5s;
-    top: 0;
-    width: 100%;
 }
 
 nav .activePage {
@@ -104,4 +97,26 @@ header .site-header {
 article {
     text-align: right;
     display: inline-block;
+}
+
+/***** Mobile Compatibility *****/
+@media screen and (max-width: 600px) {
+    header h1 a {
+        font-size: 3em;
+        transition: font-size, .5s;
+    }
+
+    header h3 {
+        font-size: 1.2em;
+        transition: font-size, .5s;
+    }
+    
+    /* Nav */
+    
+    nav li{
+        display: block;
+        width: 100%;
+        border: 5px solid white;
+        padding: 5% 0 5% 0;
+    }
 }

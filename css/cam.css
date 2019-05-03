@@ -103,7 +103,7 @@
 
 
 /****** About Page ******/
-.introSection h1, #about h2, #about h3{
+.introSection h1, .introSection h2,.aboutDetails h2, .devBios h2, .devBios h3{
     font-family: Poppins;
     font-size: 2em;
 }
