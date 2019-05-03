@@ -1,24 +1,26 @@
 /* Imports */
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase|Neucha|Patrick+Hand|Poppins|Roboto+Condensed|Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase|Neucha|Patrick+Hand|Poppins|Roboto+Condensed|Ubuntu|Slabo+27px');
 
 /****** Gallery Slider ******/ 
 
 .flexslider{
     width: 92%;
     margin: auto;
-    background: rgba(0,0,0,.12);
+    background-color: #d3dcf0;
     border-radius: 10px;
 }
 
 .flex-caption{
-  width: 100%;
-  padding: 2.5%;
-  margin: 0 auto 2% auto;
-  text-align: left;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  color: #000;
-  transition: background-color, .7s;
+    width: 100%;
+    padding: 2.5%;
+    margin: 0 auto 2% auto;
+    font-family: "Slabo 27px";
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: #000;
+    transition: background-color, .7s;
+    
 }
 
 .foreground-gradient{
@@ -34,17 +36,20 @@
 .flexslider img{
     max-width: 1000px;
     margin: auto;
+    border: 10px solid #9bcfdc;
 }
 
 .flexslider h3{
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.7em;
+    font-family: neucha;
     text-align: center;
     padding-top: 1.5em;
 }
 
 .flexslider h4{
-    font-size: 1.2em;
+    font-family: Poppins;
+    font-size: 1.1em;
     text-align: center;
     padding: 2%;
 }
@@ -77,6 +82,7 @@
     opacity: 0;
     right: 0;
     border: 0px;
+    font-family: Poppins;
     text-align: center;
     text-decoration: underline;
     text-shadow: 2px 2px 1px #FFF;
