@@ -158,9 +158,9 @@
     margin: 2% 3.5%;
     width: 40%;
     height: 290px;
-    border: 10px solid #ffb9ed;
+    border: solid #ffe19f;
     border-radius: 0px 0px 3px 3px;
-    border-width: 0px 0px 6px 0px;
+    border-width: 0px 0px 4px 0px;
 }
 
 .aboutDetails section h2{
@@ -180,7 +180,7 @@
 }
 
 .aboutDetails section .helpText{
-    margin: 8% 2% 0% 2%;
+    margin: 6% 2% 0% 2%;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -227,8 +227,8 @@
     text-align: left;
     width: 70%;
     margin: auto;
+    padding: 3%;
     line-height: 1.5em;
-    border-bottom: 1px solid #a7b6d8;
 }
 
 .devBios section img{

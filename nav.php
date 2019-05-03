@@ -1,5 +1,5 @@
 <!--          Beginning of Nav          -->
-<nav id="navbar">
+<nav class="idle" id="navbar">
     <ul>
         <?php
 

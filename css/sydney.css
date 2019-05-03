@@ -16,7 +16,7 @@ nav {
     transition: opacity, .5s;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100000;
 }
 nav ul {
     list-style-type: none;
@@ -115,8 +115,16 @@ article {
     
     nav li{
         display: block;
-        width: 100%;
+        width: 95%;
         border: 5px solid white;
         padding: 5% 0 5% 0;
+        font-size: 1.25em;
+    }
+    
+    nav{
+        position: static;
+        top: 0;
+        z-index: 1000;
+        margin: .1em 0 .1em 0;
     }
 }
