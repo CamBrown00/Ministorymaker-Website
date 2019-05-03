@@ -109,7 +109,7 @@
 }
 
 #about p, #about .aboutDetails a, .aboutDetails li{
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #about .devBios h3{
@@ -293,7 +293,7 @@ h3.form-heading{
     border-radius: 10px;
     margin: 2% auto;
     text-align: center;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
     transition: background-color, .5s;
     box-shadow: 0px 4px #a7b6d8;
 }
@@ -326,7 +326,7 @@ h3.form-heading{
     width: 50%;
     text-align: center;
     margin: 2% auto;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #feedback ol{
@@ -343,6 +343,35 @@ h3.form-heading{
 #feedback input.mistake{
     background-color: #fedcde;
     box-shadow: 0px 3px #fcbcc1;
+}
+
+/********** Homepage **********/
+#index main{
+    margin: auto;
+    text-align: center;
+}
+
+#index article{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+#index article img{
+    max-width: 80%;
+    border: 10px solid #ffdcbe;
+}
+
+#index article p{
+    margin: 5%;
+    margin: 5% 2% 5% 4%;
+    text-align: left;
+    line-height: 1.5em;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.introSection{
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 
