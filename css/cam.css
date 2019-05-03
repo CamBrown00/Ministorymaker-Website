@@ -150,6 +150,8 @@
 
 .helpText p{
     margin-top: 5%;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .introSection .aboutText{
