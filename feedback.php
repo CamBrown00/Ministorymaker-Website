@@ -15,7 +15,7 @@ print PHP_EOL . '<!--SECTION: 1b Form variables -->' . PHP_EOL;
 
 $firstName = "";
 $lastName = "";
-$email = "ccbrown@uvm.edu";
+$email = "";
 $comments = '';
 
 
@@ -171,7 +171,7 @@ if (isset($_POST["btnSubmit"])) {
         $cc = '';
         $bcc = '';
         
-        $from = "Manuel's Meats Newsletter <ccbrown@uvm.edu>";
+        $from = "Mini Story Maker <ccbrown@uvm.edu>";
         
         // subject of mail should make sense to your form
         $subject = 'Your Registration Form';
