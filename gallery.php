@@ -2,7 +2,6 @@
     include('top.php');
 ?>
 
-<h2 class='page-heading'> Image Gallery </h2>
 <p class='intro'> </p>
 <p id="testp"></p>
 
@@ -32,11 +31,11 @@
     button.onclick = function(){
         //Change the id of the p element containing the story upon button press
         for (var i = 0; i < stories.length; i++){
-            if (stories[i].id === "story-content-max"){
-                stories[i].id = "story-content-min";
+            if (stories[i].className === "flex-caption story-content-max"){
+                stories[i].className = "flex-caption story-content-min";
                 button.innerHTML = "Read More";   
             }else{
-                stories[i].id = "story-content-max";
+                stories[i].className = "flex-caption story-content-max";
                 button.innerHTML = "Minimize";
             }
         }

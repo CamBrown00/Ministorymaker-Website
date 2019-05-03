@@ -63,12 +63,16 @@
     background-color: white;
 }
 
-#story-content-min{
+.story-main h5{
+    display: none;
+}
+
+.story-content-min{
     max-height: 190px;
     overflow: hidden;
 }
 
-#story-content-max{
+.story-content-max{
     max-height: 100%;
 }
 
