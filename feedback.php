@@ -186,9 +186,6 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 
 ?>
 
-<main>
-    <article id='main'>
-
 <?php
 
     print PHP_EOL . '<!-- SECTION 3a -->' . PHP_EOL;
@@ -288,7 +285,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
         </fieldset> <!-- ends contact -->
         <fieldset class="textarea">
             <p>
-                <label class="required" for="txtComments">Comments</label>
+                <label class="required" id="comments" for="txtComments">Comments</label>
                 <textarea <?php if ($commentsERROR) print 'class="mistake"'; ?>
                     id="txtComments"
                     maxlength="2000"
@@ -298,15 +295,12 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
             </p>
         </fieldset>     
         <fieldset class='buttons'>
-            <legend></legend>
             <input class='button' id='btnSubmit' name='btnSubmit' tabindex='900' type='submit' value='Register'>
         </fieldset> <!-- ends buttons -->
 </form>
 <?php
     }
 ?>
-    </article>
-</main>
 
 <?php include 'footer.php';?>
 
