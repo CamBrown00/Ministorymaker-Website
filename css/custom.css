@@ -3,6 +3,61 @@ Custom CSS by AriaRay Brown, Cam Brown, Sydney Bertrand
 Updated: 4-2019
 */
 
+@import url("reset.css");
+@import url("outline.css");
 @import url("sydney.css");
 @import url("cam.css");
 @import url("ariaray.css");
+
+/***************/
+/* MAIN LAYOUT */
+/***************/
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+a {
+
+}
+body {  
+
+}
+footer {
+
+}
+h1 {  
+
+}
+h2 {
+
+}
+h3 {
+
+}
+h4 {
+
+}
+li {
+
+}
+ol {
+
+}
+ul {
+
+}
+
+/****************/
+/* ABOUT LAYOUT */
+/****************/
+
+
+/******************/
+/* GALLERY LAYOUT */
+/******************/
+
+
+/************************/
+/* FEEDBACK LAYOUT */
+/************************/
