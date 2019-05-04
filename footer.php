@@ -1,4 +1,7 @@
 <!--          Footer          -->
 <footer>
-    <p>- Site created by Sydney Bertrand, AriaRay Brown, and Cameron Brown</p>
+    <p class="author-intro">- Site created by </p>
+    <p>Cameron Brown</p>
+    <p>Sydney Bertrand</p> 
+    <p>AriaRay Brown</p>
 </footer>

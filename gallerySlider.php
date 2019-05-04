@@ -29,20 +29,23 @@ if ($debug) {
 /* This reads the csv file containing the stories */
 if ($file) {
 
-    //Read the author row from the data, copy the line for each author row.
+    //Read the author row from the data.
     $authors[] = fgetcsv($file);
     
-    //Read the title row from the data, copy the line for each header row.
+    //Read the title row from the data.
     $headers[] = fgetcsv($file);
     
-    //Read the story row from the data, copy the line for each story row.
+    //Read the story row from the data.
     $storyDetails[] = fgetcsv($file);
+    
+    //Read the color row from the data.
+    $colors[] = fgetcsv($file);
 }
     fclose($file);
     include('functions.php');
     
     /******* Create Slides *******/
-    $slideCount = 2;
+    $slideCount = 10;
 
     //Print randomized stories
     print "<ul class='slides'>";
@@ -54,22 +57,27 @@ if ($file) {
 
                 print PHP_EOL;
             }
-            print('<img src="images/storyslide' . $j . '.jpg"/>');
-
+            
             foreach ($authors as $author) {
 
-                print'<p class="story-author">by ' . $author[$j] . '</p>';
+                print'<h4 class="story-author">by ' . $author[$j] . '</h4>';
 
                 print PHP_EOL;
             }
+            
+            print('<img alt="" src="images/storyslide' . $j . '.jpg">');
 
-            /* This loop prints the story that corresponds with the title */
-            foreach ($storyDetails as $storyDetail){
-                print'<p class="flex-caption story-content">' . $storyDetail[$j] . '</p>';
+            
+            print('<section class="story-main">');
+                print('<h5>h</h5>');
+                /* This loop prints the story that corresponds with the title */
+                foreach ($storyDetails as $storyDetail){
+                    print'<figure class="foreground-gradient"></figure>';
+                    print'<p class="flex-caption story-content-min" style="background-color:' . $colors[0][$j] . ';">' . $storyDetail[$j] . '</p>';
 
-                print PHP_EOL;
-            }
-
+                    print PHP_EOL;
+                }
+            print('</section>');
         print "</li>";
     }
     print "</ul>";

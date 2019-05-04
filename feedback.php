@@ -15,7 +15,7 @@ print PHP_EOL . '<!--SECTION: 1b Form variables -->' . PHP_EOL;
 
 $firstName = "";
 $lastName = "";
-$email = "ccbrown@uvm.edu";
+$email = "";
 $comments = '';
 
 
@@ -171,7 +171,7 @@ if (isset($_POST["btnSubmit"])) {
         $cc = '';
         $bcc = '';
         
-        $from = "Manuel's Meats Newsletter <ccbrown@uvm.edu>";
+        $from = "Mini Story Maker <ccbrown@uvm.edu>";
         
         // subject of mail should make sense to your form
         $subject = 'Your Registration Form';
@@ -185,9 +185,6 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 
 
 ?>
-
-<main>
-    <article id='main'>
 
 <?php
 
@@ -288,7 +285,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
         </fieldset> <!-- ends contact -->
         <fieldset class="textarea">
             <p>
-                <label class="required" for="txtComments">Comments</label>
+                <label class="required" id="comments" for="txtComments">Comments</label>
                 <textarea <?php if ($commentsERROR) print 'class="mistake"'; ?>
                     id="txtComments"
                     maxlength="2000"
@@ -298,15 +295,12 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
             </p>
         </fieldset>     
         <fieldset class='buttons'>
-            <legend></legend>
             <input class='button' id='btnSubmit' name='btnSubmit' tabindex='900' type='submit' value='Register'>
         </fieldset> <!-- ends buttons -->
 </form>
 <?php
     }
 ?>
-    </article>
-</main>
 
 <?php include 'footer.php';?>
 

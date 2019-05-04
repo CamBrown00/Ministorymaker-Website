@@ -12,32 +12,45 @@ and open the template in the editor.
 /*       NAV LAYOUT     */
 /************************/
 nav {
-    background-color: lightyellow;
-    margin-bottom: 1em;
-    height: 60px;
+    margin: .1em 0 .1em 0;
+    transition: opacity, .5s;
+    position: sticky;
+    top: 0;
+    z-index: 100000;
 }
 nav ul {
     list-style-type: none;
-    display: table;
-    height: 100%;
     width: 100%;
-    margin: 0 auto;
+    height: 70px;
 }
 nav li {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 20px;
+    display: inline-block;
     width: 20%;
+    padding: 1.5%;
+    font-size: 1.25em;
     text-align: center;
+    background-color: #4e67c4;
+    border: solid #fff;
+    border-width: 0px 4px 0px 4px;
+    transition: background-color, font-size, .5s;
 }
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+nav li:hover {
+    font-size: 1.35em;
+    background-color: #3ea2b9;
+    transition: background-color, font-size, .5s;
 }
 
 nav .activePage {
-    background-color: lightgrey;
+    background-color: #9bcfdc;
+}
+nav .activePage:hover {
+    font-size: 1.25em;
+    background-color: #9bcfdc;
+}
+
+nav a {
+    font-family: "Roboto Condensed";
+    color: white;
 }
 
 /************************/
@@ -45,9 +58,9 @@ nav .activePage {
 /************************/
 
 body header {
-	  height: 200px;
-	  text-align: center;
-      background-color: lightgrey;
+    height: 200px;
+    margin-bottom: 1%;
+    text-align: center;
 }
 
 #header-wrapper {
@@ -57,12 +70,20 @@ body header {
 }
 
 header h1 a {
-    font-size: 3em;
-    
+    font-family: Poppins;
+    font-size: 5em;
+    transition: color, .2s;
+}
+
+header h1 a:hover{
+    color: #4e67c4;
+    transition: color, .2s;
 }
 
 header h3 {
-    font-size: 1.3em;
+    margin-top: .5%;
+    font-family: Poppins;
+    font-size: 1.5em;
 }
 
 header .site-header {
@@ -90,4 +111,41 @@ header .site-header {
 
 #index article p a:hover {
     color: #4e67c4;
+}
+
+/***** Mobile Compatibility *****/
+@media screen and (max-width: 600px) {
+    header h1 a {
+        font-size: 3em;
+        transition: font-size, .5s;
+    }
+
+    header h3 {
+        font-size: 1.2em;
+        transition: font-size, .5s;
+    }
+    
+    /* Nav */
+    nav{
+        position: static;
+        top: 0;
+        z-index: 1000;
+        margin: .1em 0 .5em 0;
+    }
+    nav ul{
+        height: initial;
+    }
+    
+    nav li{
+        margin: auto;
+        display: block;
+        width: 95%;
+        border: 5px solid white;
+        padding: 5% 0 5% 0;
+        font-size: 1.25em;
+    }
+    
+    nav li:hover{
+        font-size: 1.25em;
+    }
 }

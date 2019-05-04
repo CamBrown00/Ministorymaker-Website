@@ -1,5 +1,5 @@
 <!--          Beginning of Nav          -->
-<nav id="navbar">
+<nav class="idle" id="navbar">
     <ul>
         <?php
 
@@ -14,29 +14,29 @@
 
         /* Make a Story */
         print '<li class="';
-        if ($path_parts['filename'] == 'form') {
+        if ($path_parts['filename'] == 'makeastory') {
             print 'activePage';
         }
         print '">';
-        print '<a href="form.php">Make a Story</a>';
+        print '<a href="makeastory.php">Make a Story</a>';
         print '</li>';
         
-        /* Gallery Page */
+        /* Read a Story Page */
         print '<li class="';
         if ($path_parts['filename'] == 'gallery') {
             print 'activePage';
         }
         print '">';
-        print '<a href="gallery.php">Gallery</a>';
+        print '<a href="gallery.php">Read a Story</a>';
         print '</li>';
         
-        /* About Page */
+        /* About Page */ 
         print '<li class="';
-        if ($path_parts['filename'] == 'sources') {
+        if ($path_parts['filename'] == 'about') {
             print 'activePage';
         }
         print '">';
-        print '<a href="blank.php">About Us</a>';
+        print '<a href="about.php">About</a>';
         print '</li>';
         
         /* Feedback Page */
@@ -51,18 +51,3 @@
     </ul>
 </nav>
 <!--          End of Nav          -->
-
-<script>
-window.onscroll = function() {responsiveNav()};
-
-var navbar = document.getElementByTagName("nav");
-var sticky = navbar.offsetTop;
-
-function responsiveNav() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky");
-    } else {
-        navbar.classList.remove("sticky");
-    }
-}
-</script>
