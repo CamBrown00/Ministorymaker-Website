@@ -3,11 +3,12 @@
 ?>
 
 <main class="aboutDetails">
-    <section>
-    <h2>How to Use</h2>
-    <p class ="helpText">
-        Using the site is simple!<br>
-        If you want to make a story,
+    <section class ="helpText">
+        <h2>How to Use</h2>
+        <p>
+            Using the site is simple!<br>
+            If you want to make a story,
+        </p>
         <ul>
             <li>
                 Click on the Make a Story button
@@ -19,7 +20,6 @@
                 Submit the story!
             </li>
         </ul>
-    </p>
     </section>
     
     <section>
@@ -37,7 +37,7 @@
     </p>
     </section>
 </main>
-<main class="devBios">
+<article class="devBios">
     <h2 class="heading2">The Developers</h2>
     <section>
         <h3>Sydney</h3>
@@ -60,7 +60,7 @@
             I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and styled most of the site.
         </p>
     </section>
-</main>
+</article>
 
 <?php
     include('footer.php');

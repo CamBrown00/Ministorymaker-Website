@@ -65,18 +65,19 @@ if ($file) {
                 print PHP_EOL;
             }
             
-            print('<img src="images/storyslide' . $j . '.jpg"/>');
+            print('<img alt="" src="images/storyslide' . $j . '.jpg">');
 
             
-            print('<main class="story-main">');
+            print('<section class="story-main">');
+                print('<h5>h</h5>');
                 /* This loop prints the story that corresponds with the title */
                 foreach ($storyDetails as $storyDetail){
                     print'<figure class="foreground-gradient"></figure>';
-                    print'<p class="flex-caption" id="story-content-min" style="background-color:' . $colors[0][$j] . ';">' . $storyDetail[$j] . '</p>';
+                    print'<p class="flex-caption story-content-min" style="background-color:' . $colors[0][$j] . ';">' . $storyDetail[$j] . '</p>';
 
                     print PHP_EOL;
                 }
-            print('</main>');
+            print('</section>');
         print "</li>";
     }
     print "</ul>";
