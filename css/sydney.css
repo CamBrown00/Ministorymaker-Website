@@ -94,14 +94,23 @@ header .site-header {
 /*   HOMEPAGE LAYOUT    */
 /************************/
 
-#index article {
+#index #intro-article {
     margin: 1.5em;
     display: inline-block;
 }
 
-article {
+#index article {
     text-align: right;
     display: inline-block;
+}
+
+#index article p a {
+    font-weight: bold;
+    color: #000;
+}
+
+#index article p a:hover {
+    color: #4e67c4;
 }
 
 /***** Mobile Compatibility *****/
