@@ -43,7 +43,7 @@
         <h3>Sydney</h3>
         <img class="bioImg" alt="" src="images/sydneyBio.png">
         <p class="bio">
-            I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+            I'm a senior Computer Science student at UVM graduating in May. When I graduate I'm going to work at iMarket Solutions in Burlington VT as a Web Developer. In my free time, I like to knit, crochet, play video games, and grow plants.
         </p>
     </section>
     <section>
