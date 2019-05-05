@@ -35,7 +35,7 @@ nav li {
     transition: background-color, font-size, .5s;
 }
 nav li:hover {
-    font-size: 1.35em;
+    /*font-size: 1.35em;*/ 
     background-color: #3ea2b9;
     transition: background-color, font-size, .5s;
 }

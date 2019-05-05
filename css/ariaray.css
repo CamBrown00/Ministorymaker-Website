@@ -3,6 +3,91 @@
 /* MAKE A STORY LAYOUT */
 /***********************/
 
-.contact legend, .buttons legend {
-    /*display: none;*/
+input#btnSaveStory {
+    color: #4e67c4;   
+    font-family: inherit;
+    font-size: 1.25em;
 }
+
+#makeastory .contact legend, #makeastory .buttons legend {
+    display: none;
+}
+
+#makeastory form {
+    margin: 1em auto;
+    width: 75%;
+}
+
+#makeastory fieldset.contact { 
+    margin-bottom: 1em;
+    margin-top: 2em;
+}
+
+#makeastory fieldset.contact input {
+    width: 75%;
+}
+
+#makeastory main {
+    background: #2b9cba;
+    padding: 1em;
+}
+
+#makeastory main article {
+    font-size: 1.5em;
+}
+
+#makeastory main h1 {
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#makeastory main h1 a {
+    background: #feedba;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgba(181, 181, 181, 0.86);
+    padding: 4px;
+    text-decoration: none;
+}
+    
+#makeastory main h1+p {
+    font-size: .75em;
+    margin: 1em .5em .0.5em;
+}
+   
+#makeastory #randomStory {
+    background: white;
+    color: #4e67c4;
+    font-size: 1.2em;
+    margin: 1em auto;
+    padding: .5em;
+    width: 75%;
+}
+
+#makeastory section {
+}
+
+#makeastory section#howToUse {
+    margin: 0 auto;
+    width: 45%;
+}
+
+#makeastory section#makeTheStory {
+    margin: 0 auto;
+    width: 75%;
+}
+
+textarea#txtYourSentence {
+    background: white;
+    border: none;
+    color: #4e67c4;
+    font-size: 1.2em;
+    margin: .25em auto;
+    padding: .5em;
+    width: 100%;
+}
+
+
+/*******************/
+/* FEEDBACK LAYOUT */
+/*******************/

@@ -9,6 +9,8 @@ Updated: 4-2019
 @import url("cam.css");
 @import url("ariaray.css");
 
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase|Neucha|Patrick+Hand|Poppins|Roboto+Condensed|Ubuntu|Slabo+27px');
+
 /***************/
 /* MAIN LAYOUT */
 /***************/
@@ -20,30 +22,39 @@ Updated: 4-2019
 a {
 
 }
-body {  
 
+body {  
+    line-height: 1.25;
+    font-family: Poppins;
 }
+
 footer {
 
 }
+
 h1 {  
 
 }
 h2 {
 
 }
+
 h3 {
 
 }
+
 h4 {
 
 }
+
 li {
 
 }
+
 ol {
 
 }
+
 ul {
 
 }
@@ -56,8 +67,3 @@ ul {
 /******************/
 /* GALLERY LAYOUT */
 /******************/
-
-
-/************************/
-/* FEEDBACK LAYOUT */
-/************************/
