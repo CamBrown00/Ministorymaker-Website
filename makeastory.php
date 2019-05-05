@@ -40,6 +40,7 @@ print PHP_EOL . '<!-- SECTION: 1b. form variables -->' . PHP_EOL;
 $yourSentence = "";
 $name = "";
 $email = "";
+$rating = "";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -51,6 +52,7 @@ print PHP_EOL . '<!-- SECTION: 1c. form error flags -->' . PHP_EOL;
 $yourSentenceERROR = false;
 $nameERROR = false;
 $emailERROR = false;
+$ratingERROR = false;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -92,6 +94,7 @@ if (isset($_POST["btnSaveStory"])) {
     $yourSentence = htmlentities($_POST["txtYourSentence"], ENT_QUOTES, "UTF-8");
     $name = htmlentities($_POST["txtName"], ENT_QUOTES, "UTF-8");
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
+    $rating = htmlentities($_POST["radRating"], ENT_QUOTES, "UTF-8");
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -153,6 +156,12 @@ if (isset($_POST["btnSaveStory"])) {
         $emailERROR = true;
     }
     
+    // check radio buttons
+    if ($rating != "1" AND $rating != "2" AND $rating != "3" AND $rating != "4" AND $rating != "5") {
+        $errorMsg[] = "Remember to pick a rating.";
+        $ratingERROR = true;
+    }
+    
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     print PHP_EOL . '<!-- SECTION: 2d Process Form - Passed Validation -->' . PHP_EOL;
@@ -176,6 +185,7 @@ if (isset($_POST["btnSaveStory"])) {
         $story = $sentence0 . ' ' . $sentence1 . ' ' . $sentence2 . ' '
                 . $yourSentence;
         $dataRecord[] = $story;
+        $dataRecord[] = $rating;
         $dataRecord[] = $name;
         
         // set up csv file
@@ -213,6 +223,9 @@ if (isset($_POST["btnSaveStory"])) {
         // append your sentence to message
         $message .= '<p>' . htmlentities($yourSentence, ENT_QUOTES, "UTF-8") . '</p>';
         $message .= '</div>';
+        
+        // append star rating to message
+        $message .= '<p>Rating = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . 'stars </p>';
         
         // append author as name or Anonymous
         if (!empty($name)){
@@ -345,8 +358,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
             name="hidSentence2"
             type="hidden"
             value="<?php print $sentence2; ?>"
-        >   
-        
+        >   <!-- end hidden sentences -->
         
         <fieldset class="textarea sentence">
             <legend>Finish the story:</legend>
@@ -363,37 +375,62 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
             </p>
         </fieldset> <!-- end sentence textarea -->
         
-                <fieldset class = "contact">
-                <legend>Your name and email:</legend>
-                <p>
-                    <label class="" for="txtName">Name:</label>
-                        <input autofocus
-                           <?php if ($nameERROR) print 'class="mistake"'; ?>
-                           id="txtName"
-                           maxlength="45"
-                           name="txtName"
-                           onfocus="this.select()"
-                           placeholder="Enter your name or leave blank to be Anonymous"
-                           tabindex="100"
-                           type="text"
-                           value="<?php print $name; ?>"
-                    >   
-                </p>
+        <fieldset class="radio rating <?php if ($ratingERROR) print ' mistake'; ?>">
+            <legend>Rate your story: </legend>
+            <aside class="radioWrapper">
+                <input type="radio" class="hide" id="radRating5" name="radRating" value="5" tabindex="540"
+                    <?php if ($rating == "5") echo ' checked="checked" '; ?>>
+                <label class="radio-field" for="radRating5">&#9733;</label>
 
-                <p>
-                    <label class="required" for="txtEmail">Email:</label>
-                        <input
-                            <?php if ($emailERROR) print 'class="mistake"'; ?>
-                            id = "txtEmail"
-                            maxlength = "45"
-                            name = "txtEmail"
-                            onfocus = "this.select()"
-                            placeholder = "Enter your email address"
-                            tabindex = "120"
-                            type = "text"
-                            value = "<?php print $email; ?>"
-                       >
-                </p>
+                <input type="radio" class="hide" id="radRating4" name="radRating" value="4" tabindex="530"
+                    <?php if ($rating == "4") echo ' checked="checked" '; ?>>
+                <label class="radio-field" for="radRating4">&#9733;</label>  
+
+                <input type="radio" class="hide" id="radRating3" name="radRating" value="3" tabindex="520"
+                    <?php if ($rating == "3") echo ' checked="checked" '; ?>>
+                <label class="radio-field" for="radRating3">&#9733;</label>
+
+                <input type="radio" class="hide" id="radRating2" name="radRating" value="2" tabindex="510"
+                    <?php if ($rating == "2") echo ' checked="checked" '; ?>>
+                <label class="radio-field" for="radRating2">&#9733;</label>
+
+                <input type="radio" class="hide" id="radRating1" name="radRating" value="1" tabindex="500"
+                    <?php if ($rating == "1") echo ' checked="checked" '; ?>>
+                <label class="radio-field" for="radRating1">&#9733;</label>
+            </aside>   
+        </fieldset> <!-- ends radio rating-->
+        
+        <fieldset class = "contact">
+            <legend>Your name and email:</legend>
+            <p>
+                <label class="" for="txtName">Name:</label>
+                    <input autofocus
+                       <?php if ($nameERROR) print 'class="mistake"'; ?>
+                       id="txtName"
+                       maxlength="45"
+                       name="txtName"
+                       onfocus="this.select()"
+                       placeholder="Enter your name or leave blank to be Anonymous"
+                       tabindex="100"
+                       type="text"
+                       value="<?php print $name; ?>"
+                >   
+            </p>
+
+            <p>
+                <label class="required" for="txtEmail">Email:</label>
+                    <input
+                        <?php if ($emailERROR) print 'class="mistake"'; ?>
+                        id = "txtEmail"
+                        maxlength = "45"
+                        name = "txtEmail"
+                        onfocus = "this.select()"
+                        placeholder = "Enter your email address"
+                        tabindex = "120"
+                        type = "text"
+                        value = "<?php print $email; ?>"
+                   >
+            </p>
         </fieldset> <!-- ends email/name -->
         
         

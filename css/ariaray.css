@@ -92,6 +92,48 @@ textarea#txtYourSentence {
     width: 100%;
 }
 
+/* Star Rating Design */
+
+/* Targets all sibling star labels before the hovered-over p element 
+so that all "preceding" (the labels appear in r-to-l direction) 
+star labels show effect. Add checked element to make the effect "stick"
+Inspiration for these selectors from 
+https://www.everythingfrontend.com/posts/star-rating-input-pure-css.html */
+
+.hide {
+    display: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    background-color: initial;
+    cursor: default;
+    margin: 3px 0.5ex;
+}
+
+label.radio-field {
+    color: rgba(45, 38, 32, 0.76);
+    cursor: pointer;
+    display: inline;
+    font-size: 1.5em;
+    margin: 0;
+    padding: .2em;
+}
+
+.radio-field:hover, .radio-field:hover ~ .radio-field,
+ input[type="radio"]:checked ~ .radio-field {
+    color: rgb(255, 255, 255);
+}
+
+.radioWrapper {
+    direction: rtl;
+    text-align: center;
+}
+
+/* Resets preceding-stars effect when mouse hovers over a new star */
+.radioWrapper:hover .radio-field {
+  
+}
+
 
 /*******************/
 /* FEEDBACK LAYOUT */
