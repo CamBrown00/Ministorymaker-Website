@@ -66,7 +66,7 @@ $mailed = false;
 
 print PHP_EOL . '<!-- SECTION: 2 Process for when the form is submitted -->' . PHP_EOL;
 
-if (isset($_POST["btnSubmit"])) {
+if (isset($_POST["btnSaveStory"])) {
 
     print PHP_EOL . '<!-- SECTION: 2a Security -->' . PHP_EOL;
     
@@ -252,6 +252,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 ?>
 <main>
     <article>
+        <section id="howToUse">
 <?php
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -260,7 +261,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     
     // Display form initially or if submitted unsucessfully 
 
-    if (isset($_POST["btnSubmit"]) AND empty($errorMsg)) { // closing of if marked with: end body submit 
+    if (isset($_POST["btnSaveStory"]) AND empty($errorMsg)) { // closing of if marked with: end body submit 
        print '<h2>What a random, mini story!</h2>';
 
        print '<p>Your completed story has ';
@@ -273,7 +274,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 
        print '<article id="message" class="">';
        print $message;
-       print '</article>';
+       print '</section></article>';
     } 
     else {
         print '<h1 class=""><a href="makeastory.php">Make a story!</a></h1>';
@@ -300,6 +301,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+        print '</section>';
         print PHP_EOL . '<!-- SECTION: 3c html Form -->' . PHP_EOL;
 
         /* Display the HTML form. Note that the action is to this same page. 
@@ -314,7 +316,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
          * make it stand out that a mistake happened here.
          */
         ?>
-    
+   <section id="makeTheStory"> 
    <section id="randomStory" class="">
             <p><?php print $sentence0 ?></p>
             <p><?php print $sentence1 ?></p>
@@ -397,13 +399,14 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
         <fieldset class="buttons">
                 <legend>Save your story</legend>
-                <input class="button" id="btnSubmit" name="btnSubmit" tabindex="900" type="submit" value="Save Your Story">
+                <input class="button" id="btnSaveStory" name="btnSaveStory" tabindex="900" type="submit" value="Save Your Story">
         </fieldset> <!-- end buttons -->
 
     </form>
 <?php
    } // ends body submit
 ?>
+   </section>
     </article>
 </main>
 
