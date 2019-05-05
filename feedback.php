@@ -140,7 +140,7 @@ if (isset($_POST["btnSubmit"])) {
         
         $message .= '<p>Thanks for submitting feedback!</p>' . "\n" .
                     "<p>Here's the comment that we received from your submission: </p>" . "\n";
-        $message .= "<p>" . $comments . "</p>";
+        $message .= "<p class='comments'>" . $comments . "</p>";
 
         $cookingCheck = false;
         
@@ -174,12 +174,14 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
         
     if (isset($_POST["btnSubmit"]) AND empty($errorMsg)){
         
+        print "<section class='form-output'>";
         if ($mailed){
             print "<p style='font-size: 1.15em;'> We've sent a copy of your submission to:   ";
             print $email . '</p>';
         }
         
         print $message;
+        print "</section>";
     }
     else{
 
