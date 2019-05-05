@@ -4,7 +4,8 @@
 /***********************/
 
 input#btnSaveStory {
-    color: #4e67c4;   
+    color: #4e67c4;  
+    cursor: pointer;
     font-family: inherit;
     font-size: 1.25em;
 }
