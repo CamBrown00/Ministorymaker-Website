@@ -86,7 +86,6 @@ html[xmlns] .flexslider .slides {
 }
 .flexslider .slides img {
   height: auto;
-  -moz-user-select: none;
 }
 .flex-viewport {
   transition: all 1s ease;
@@ -102,9 +101,7 @@ html[xmlns] .flexslider .slides {
 .carousel li {
   margin-right: 5px;
 }
-.flex-direction-nav {
-  *height: 0;
-}
+
 .flex-direction-nav a {
   text-decoration: none;
   display: block;
@@ -194,7 +191,6 @@ html[xmlns] .flexslider .slides {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
 }
 .flex-control-paging li a {
   width: 11px;
@@ -232,7 +228,6 @@ html[xmlns] .flexslider .slides {
   display: block;
   opacity: .7;
   cursor: pointer;
-  -moz-user-select: none;
   transition: all 1s ease;
 }
 .flex-control-thumbs img:hover {
