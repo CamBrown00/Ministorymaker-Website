@@ -430,6 +430,35 @@ footer .author-intro{
     font-size: 1em;
 }
 
+/***** My Choices *****/
+#choices{
+    background-color: #9bcfdc;
+}
+
+#choices section{
+    width: 80%;
+    padding: 3%;
+    margin: 3% auto;
+    background-color: white;
+}
+
+#choices h1{
+    width: 30%;
+    margin: 2% auto;
+    text-align: center;
+    font-family: Poppins;
+    border: solid peachpuff;
+    border-width: 0 0 3px 0;
+}
+
+#choices p{
+    font-family: "Roboto Condensed";
+    width: 50%;
+    margin: auto;
+    padding: 1%;
+    line-height: 1.6em;
+}
+
 /*** Mobile Compatibility ***/
 
 @media only screen and (max-width: 600px) {
