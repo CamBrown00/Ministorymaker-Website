@@ -19,6 +19,10 @@
             <li>
                 Submit the story!
             </li>
+            <li>
+                There are 30,488,290,624 (3,124 sentences ^ 3) possible random stories 
+                to make at every click of the make-a-story button!
+            </li>
         </ul>
     </section>
     
