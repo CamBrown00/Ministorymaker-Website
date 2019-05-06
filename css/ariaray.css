@@ -5,13 +5,37 @@
 
 input#btnSaveStory {
     color: #4e67c4;  
-    cursor: pointer;
     font-family: inherit;
     font-size: 1.25em;
 }
 
-#makeastory .contact legend, #makeastory .buttons legend {
+fieldset.radio legend {
+    margin: .5em auto;
+}
+
+#makeastory .contact legend, #makeastory .buttons legend, #makeastory .sentence legend {
     display: none;
+}
+
+#makeastory fieldset {
+    margin: .5em auto;
+}
+
+#makeastory fieldset.contact { 
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#makeastory fieldset.contact p { 
+    margin-bottom: .5em;
+}
+
+#makeastory fieldset.contact input {
+    width: 80%;
+}
+
+#makeastory fieldset.legend {
+    margin: .5em 0;
 }
 
 #makeastory form {
@@ -19,17 +43,54 @@ input#btnSaveStory {
     width: 75%;
 }
 
-#makeastory fieldset.contact { 
-    margin-bottom: 1em;
-    margin-top: 2em;
+#makeastory textarea::placeholder { 
+    font-style: italic;
 }
 
-#makeastory fieldset.contact input {
-    width: 75%;
+#makeastory input[type=submit] {
+    background: #4e66c4 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    box-shadow: 1px 1px 4px #0d6177;
+    padding: .25em;
 }
 
+#makeastory input[type^='text'] { 
+    background: none;
+    border: none;
+    border-bottom: 3px solid #0d6177;
+    color: #ffe19f;
+    font-family: inherit;
+    font-size: .9em;
+    font-weight: bold;
+    padding: .5em .5em 0;
+}
+
+#makeastory input[type^='text']:focus {
+    outline: none;
+}
+
+#makeastory input[type^='text']::placeholder { 
+    color: #0d6177;
+    font-style: italic;
+    opacity: 1; /* Firefox */
+}
+
+#makeastory input[type^='text']:-ms-input-placeholder { 
+    color: #0d6177;
+    font-style: italic;
+}
+ 
+#makeastory input[type^='text']::-ms-input-placeholder { 
+    color: #0d6177;
+    font-style: italic;
+}
+    
 #makeastory main {
     background: #2b9cba;
+    display: inline-block;
     padding: 1em;
 }
 
@@ -39,26 +100,35 @@ input#btnSaveStory {
 
 #makeastory main h1 {
     font-size: 1.5em;
-    margin: 0 auto;
+    margin: .5em auto;
     text-align: center;
 }
 
 #makeastory main h1 a {
     background: #feedba;
+    border: solid 4px #ffbc79;
     border-radius: 4px;
     box-shadow: 1px 1px 2px rgba(181, 181, 181, 0.86);
     padding: 4px;
     text-decoration: none;
 }
     
-#makeastory main h1+p {
+#makeastory main h1 ~ p {
     font-size: .75em;
     margin: 1em .5em .0.5em;
+}
+
+#makeastory main h1 ~ p::first-letter {
+    margin-left: 1em;
 }
    
 #makeastory #randomStory {
     margin: 1em auto;
     width: 75%;
+}
+
+#randomStory > p:first-child {
+    line-height: initial;
 }
 
 #randomStory > p:first-child:first-letter {
@@ -68,9 +138,11 @@ input#btnSaveStory {
 
 #makeastory #randomStory, textarea#txtYourSentence {
     background: white;
+    border-radius: 4px;
+    box-shadow: 2px 2px 18px #0d6177;
     color: #4e67c4;
     font-size: 1em;
-    padding: .5em;
+    padding: 1em;  
 }
 
 #makeastory section {
@@ -78,7 +150,7 @@ input#btnSaveStory {
 
 #makeastory section#howToUse {
     margin: 0 auto;
-    width: 45%;
+    width: 65%;
 }
 
 #makeastory section#makeTheStory {
@@ -86,8 +158,39 @@ input#btnSaveStory {
     width: 75%;
 }
 
+p#nextStory {
+    float: right;
+    display: inline-block;
+    width: 85%;
+    top: 25em;
+    position: absolute;
+    text-align: right;
+}
+
+p#nextStory a {
+   font-size: 4em;
+   text-decoration: none;
+}
+p#nextStory a, span.nextStory {
+   color:  #ffe19f;
+   text-shadow: 2px 2px 18px #0d6177;
+}
+p#nextStory a:link {
+   
+}
+p#nextStory a:visited {   
+    color: white;
+}
+p#nextStory a:hover {   
+    text-shadow: 2px 2px 4px #0d6177;
+}
+p#nextStory a:active { 
+    color: #ffe19fab;
+}
+
 textarea#txtYourSentence {
     border: none;
+    font-family: inherit;
     margin: .25em auto;
     width: 100%;
 }
@@ -111,17 +214,18 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 label.radio-field {
-    color: rgba(45, 38, 32, 0.76);
+    color: rgba(0, 0, 0, 0);
     cursor: pointer;
     display: inline;
     font-size: 1.5em;
     margin: 0;
     padding: .2em;
+    text-shadow: 1px 1px 0px #0d6177;
 }
 
 .radio-field:hover, .radio-field:hover ~ .radio-field,
  input[type="radio"]:checked ~ .radio-field {
-    color: rgb(255, 255, 255);
+    color: #ffe19d;
 }
 
 .radioWrapper {
@@ -135,6 +239,18 @@ label.radio-field {
 }
 
 
-/*******************/
-/* FEEDBACK LAYOUT */
-/*******************/
+/***********************************/
+/* Media Queries Responsive Layout */
+/***********************************/
+
+@media screen and (max-width: 600px){
+    
+    p#nextStory {
+        top: 47em;
+    }
+    
+    p#nextStory a {
+        font-size: 3em;
+    }
+    
+}

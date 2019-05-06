@@ -225,7 +225,7 @@ if (isset($_POST["btnSaveStory"])) {
         $message .= '</div>';
         
         // append star rating to message
-        $message .= '<p>Rating = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . 'stars </p>';
+        $message .= '<p>Rating = ' . htmlentities($rating, ENT_QUOTES, "UTF-8") . ' stars </p>';
         
         // append author as name or Anonymous
         if (!empty($name)){
@@ -291,8 +291,9 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     } 
     else {
         print '<h1 class=""><a href="makeastory.php">Make a story!</a></h1>';
-        print '<p class="">Press the "Make a Story" button, then finish the story with your own sentence. If you want to save your story: enter your email, and press "Save Your Story" to receive a copy.</p>';
-
+        print '<p class="">A story has been randomly generated for you! Press the arrow <span class="nextStory">&#10145;</span> below to generate a new story. Finish the random story with your own ending. To save your story: enter your name and email, and press "Send Story" to receive a copy.</p>';
+        //print '<p class="">Finish the random story with your own ending.</p>';
+        //print '<p class="">To save your story: enter your name and email, and press "Send Story" to receive a copy.</p>';
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         
         print PHP_EOL . '<!-- SECTION: 3b Error Messages -->' . PHP_EOL;
@@ -367,7 +368,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                 <textarea <?php if ($yourSentenceERROR) print 'class="mistake"'; ?>
                     id="txtYourSentence"
                     name="txtYourSentence"
-                    placeholder = "Type your sentence here."
+                    placeholder = "Type here to finish the story."
                     onfocus="this.select()"
                     tabindex="300"><?php print $yourSentence; ?></textarea>
                 <!-- NOTE: no blank spaces inside the text area, be sure to close
@@ -435,15 +436,21 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
         
         
         <fieldset class="buttons">
-                <legend>Save your story</legend>
-                <input class="button" id="btnSaveStory" name="btnSaveStory" tabindex="900" type="submit" value="Save Your Story">
+                <legend>Save and send story</legend>
+                <input class="button" id="btnSaveStory" name="btnSaveStory" tabindex="900" type="submit" value="Save and Send Story">
         </fieldset> <!-- end buttons -->
 
-    </form>
+    </form>   
 <?php
    } // ends body submit
 ?>
-   </section>
+    </section>
+       
+       
+       <p id="nextStory">
+           <a href="makeastory.php">&#10145;</a>
+       </p>
+    
     </article>
 </main>
 

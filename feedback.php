@@ -3,9 +3,6 @@
 include 'top.php';
 ?>
 
-<h2 class="form-heading">Give Us Feedback!</h2>
-<h3 class="form-heading">(Please use kind language!)</h3>
-
 <?php
 print PHP_EOL . '<!--SECTION: 1 Initialize variables -->' . PHP_EOL;
 
@@ -48,7 +45,7 @@ if (isset($_POST["btnSubmit"])) {
     $thisURL = $domain . $phpSelf;
     
     if (false) {
-        $msg = '<p>Sorry you cannot access this page.</p>';
+        $msg = '<p>Sorry, you cannot access this page.</p>';
         $msg.= '<p>Security breach detected and reported.</p>';
         die($msg);
     }
@@ -163,8 +160,9 @@ if (isset($_POST["btnSubmit"])) {
 
 print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 
-
 ?>
+<main>
+    <h2 class="form-heading">Give Us Feedback!</h2>
 
 <?php
 
@@ -279,6 +277,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 <?php
     }
 ?>
+</main>
 
 <?php include 'footer.php';?>
 
