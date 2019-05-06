@@ -3,8 +3,6 @@
 include 'top.php';
 ?>
 
-<h2 class="form-heading">Give Us Feedback!</h2>
-
 <?php
 print PHP_EOL . '<!--SECTION: 1 Initialize variables -->' . PHP_EOL;
 
@@ -162,8 +160,9 @@ if (isset($_POST["btnSubmit"])) {
 
 print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 
-
 ?>
+<main>
+    <h2 class="form-heading">Give Us Feedback!</h2>
 
 <?php
 
@@ -278,6 +277,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
 <?php
     }
 ?>
+</main>
 
 <?php include 'footer.php';?>
 

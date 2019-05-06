@@ -106,6 +106,7 @@ fieldset.radio legend {
 
 #makeastory main h1 a {
     background: #feedba;
+    border: solid 4px #ffbc79;
     border-radius: 4px;
     box-shadow: 1px 1px 2px rgba(181, 181, 181, 0.86);
     padding: 4px;
@@ -155,6 +156,36 @@ fieldset.radio legend {
 #makeastory section#makeTheStory {
     margin: 0 auto;
     width: 75%;
+}
+
+p#nextStory {
+    float: right;
+    display: inline-block;
+    width: 85%;
+    top: 25em;
+    position: absolute;
+    text-align: right;
+}
+
+p#nextStory a {
+   font-size: 4em;
+   text-decoration: none;
+}
+p#nextStory a, span.nextStory {
+   color:  #ffe19f;
+   text-shadow: 2px 2px 18px #0d6177;
+}
+p#nextStory a:link {
+   
+}
+p#nextStory a:visited {   
+    color: white;
+}
+p#nextStory a:hover {   
+    text-shadow: 2px 2px 4px #0d6177;
+}
+p#nextStory a:active { 
+    color: #ffe19fab;
 }
 
 textarea#txtYourSentence {
@@ -208,6 +239,18 @@ label.radio-field {
 }
 
 
-/*******************/
-/* FEEDBACK LAYOUT */
-/*******************/
+/***********************************/
+/* Media Queries Responsive Layout */
+/***********************************/
+
+@media screen and (max-width: 600px){
+    
+    p#nextStory {
+        top: 47em;
+    }
+    
+    p#nextStory a {
+        font-size: 3em;
+    }
+    
+}
