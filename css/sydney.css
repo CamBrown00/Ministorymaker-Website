@@ -26,7 +26,7 @@ nav ul {
 nav li {
     display: inline-block;
     width: 20%;
-    padding: 1.5%;
+
     font-size: 1.25em;
     text-align: center;
     background-color: #4e67c4;
@@ -49,6 +49,9 @@ nav .activePage:hover {
 }
 
 nav a {
+    display: inline-block;
+    width: 100%;
+    padding: 7%;
     font-family: "Roboto Condensed";
     color: white;
 }
@@ -147,5 +150,9 @@ header .site-header {
     
     nav li:hover{
         font-size: 1.25em;
+    }
+    
+    nav a{
+        padding: 0%;
     }
 }

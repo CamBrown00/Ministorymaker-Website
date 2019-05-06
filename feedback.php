@@ -138,31 +138,11 @@ if (isset($_POST["btnSubmit"])) {
         // Build message to be mailed and displayed.
         //Inline styling is required for changing the look of the email message.
         
-        $message = '<h2>Your information:</h2>' . "\n";
-        $message .= '<p>Thanks for using this form</p>' . "\n" .
-                    "<p>Here's the information that we received from your form: </p>" . "\n";
-        $message .= "<table rules='all' style='border-collapse: collapse; width: 100%;'>" . "\n";
-        $message .= "<th style='border: 1px solid #1a0d0d; padding: 8px;'>Categories</th><th style='border: 1px solid #1a0d0d; padding: 8px;'>Your Info</th>";
+        $message .= '<p>Thanks for submitting feedback!</p>' . "\n" .
+                    "<p>Here's the comment that we received from your submission: </p>" . "\n";
+        $message .= "<p class='comments'>" . $comments . "</p>";
 
         $cookingCheck = false;
-
-        foreach($_POST as $htmlName => $value){
-            
-            // breaks up the form names into words. For example
-            // txtFirstName becomes First Name
-            $camelCase = preg_split('/(?=[A-Z])/', substr($htmlName, 3));
-
-            if (htmlentities($value, ENT_QUOTES, "UTF-8") == "Grilling" or htmlentities($value, ENT_QUOTES, "UTF-8") == "Roasting" or htmlentities($value, ENT_QUOTES, "UTF-8") == "Smoking"){
-                $message .= htmlentities($value, ENT_QUOTES, "UTF-8") . ' ';
-            }
-            else{
-                $message .= htmlentities($value, ENT_QUOTES, "UTF-8") . "</td></tr>";
-            }
-
-            
-        }
-
-        $message .= '</table>';
         
 
         print PHP_EOL . '<!-- SECTION: 2g Mail to user -->' . PHP_EOL;
@@ -174,7 +154,7 @@ if (isset($_POST["btnSubmit"])) {
         $from = "Mini Story Maker <ccbrown@uvm.edu>";
         
         // subject of mail should make sense to your form
-        $subject = 'Your Registration Form';
+        $subject = 'Your Submitted Comment';
         
         $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);      
     }
@@ -193,17 +173,15 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
     //Display form initially or if submitted unsucessfully 
         
     if (isset($_POST["btnSubmit"]) AND empty($errorMsg)){
-        print '<h2>Thank you for providing your information.</h2>';
         
-        print '<p>For your records a copy of this data has ';
-        if(!$mailed){
-            print "not ";
+        print "<section class='form-output'>";
+        if ($mailed){
+            print "<p style='font-size: 1.15em;'> We've sent a copy of your submission to:   ";
+            print $email . '</p>';
         }
         
-        print 'been sent:</p>';
-        print '<p>To: ' . $email . '</p>';
-        
         print $message;
+        print "</section>";
     }
     else{
 
@@ -295,7 +273,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
             </p>
         </fieldset>     
         <fieldset class='buttons'>
-            <input class='button' id='btnSubmit' name='btnSubmit' tabindex='900' type='submit' value='Register'>
+            <input class='button' id='btnSubmit' name='btnSubmit' tabindex='900' type='submit' value='Submit'>
         </fieldset> <!-- ends buttons -->
 </form>
 <?php
