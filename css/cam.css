@@ -422,7 +422,7 @@ footer{
 footer p{
     padding: 1.5% 0.2% 1.25% 0;
     display: inline-block;
-    font-size: .9em;
+    font-size: 1em;
 }
 
 footer .author-intro{

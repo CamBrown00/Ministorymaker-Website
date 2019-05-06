@@ -28,8 +28,15 @@ body {
     font-family: Poppins;
 }
 
-footer {
+.boxShadow {
+    
+}
 
+footer {
+    color: rgba(0,0,0,.5);
+    clear: left;
+    padding: 2em;
+    width: 100%;    
 }
 
 h1 {  
@@ -57,6 +64,10 @@ ol {
 
 p {
     line-height: 1.5;
+}
+
+.textShadow {
+    
 }
 
 ul {
