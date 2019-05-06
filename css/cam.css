@@ -436,10 +436,15 @@ footer .author-intro{
 }
 
 #choices section{
-    width: 80%;
-    padding: 3%;
+    width: 70%;
+    padding: 4%;
     margin: 3% auto;
     background-color: white;
+}
+
+#choices .intro-choices{
+    border: 10px solid #3ea2b9;
+    width: 80%;
 }
 
 #choices h1{
@@ -451,12 +456,25 @@ footer .author-intro{
     border-width: 0 0 3px 0;
 }
 
-#choices p{
-    font-family: "Roboto Condensed";
+#choices h2{
+    font-family: Poppins;
+    font-size: 1em;
     width: 50%;
     margin: auto;
+    text-align: center;
+}
+
+#choices p{
+    font-family: "Roboto Condensed";
+    width: 65%;
+    margin: auto;
     padding: 1%;
-    line-height: 1.6em;
+    line-height: 1.75em;
+    text-indent: 2em;
+}
+
+#choices .intro-choices p{
+    font-size: 1.1em;
 }
 
 /*** Mobile Compatibility ***/
