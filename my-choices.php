@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Web Usability Test</title>
+
+        <meta charset="utf-8">
+        <meta name="author" content="Cameron Brown, AriaRay Brown, Sydney Bertrand">
+        <meta name='description' content="A summary of the choices we made">
+        
+        <link rel='stylesheet' href='css/cam.css' type='text/css' media='screen' />
+
+    </head>
+<body id="choices">
+    <section class="intro-choices">
+        <h1>My Choices</h1>
+        <p>
+            During the planning phase for our project we initially set out to 
+            achieve a simple goal, create a website that offers a unique 
+            functionality, and we decided to go with Mini Story Maker. Given the 
+            volume of websites on the internet that revolve around providing 
+            functionality through some utility, there are probably a myriad of 
+            websites to fulfill any practical utility you could think of. So 
+            instead of building a website that could provide a tool to the user, 
+            we determined that the only way to stand out would be to offer a 
+            functionality on our website that provides entertainment instead of 
+            utility. We based the premise of the site on Mad Libs, with an added 
+            an element of random generation, and incorporated children's 
+            literature to focus more on the younger demographic. 
+        </p>
+        <p>
+            We styled the page with all of these facts in mind, and especially 
+            paid attention to making the site appealing to our target 
+            demographic. “Simple and comfortable” was the guiding phrase we used 
+            in styling each of the pages. Some aspects of the design that 
+            exemplify this are the minimal use of thin borders, frequent use of 
+            rounded edges, warm and muted colors, etc. We also utilized 
+            transitions as often as possible to keep everything looking smooth. 
+            Buttons and clickable links are hard to miss as well, and we tried 
+            to make the story maker as intuitive as possible with a simple 
+            control scheme and brief instructions. We also placed instructions 
+            for the story maker on multiple pages. This was to account for the 
+            possibility of the user being unable to decide where to look for 
+            them, or if they overlooked them on one page. 
+            Following is a series of summaries that detail the roles and 
+            features implemented by each member of our group.
+        </p>
+    </section>
+    
+    <section class="cam-choices">
+        <h1>Cameron Brown</h1>
+        <h2>The Read a Story Page</h2>
+        <p>
+            I worked on implementing the functionality of the read-a-story page,
+            created the framework for the pages, wrote some of the content for 
+            the about page, created the feedback page, and styled some of the 
+            pages. Implementing the flexslider turned out to be more time 
+            consuming than I had originally thought. Because the slider wasn’t 
+            built to display content that varies greatly in length, I had to 
+            write some functions to accommodate for this shortcoming. The main 
+            issue I encountered was allowing the content in the flexslider to 
+            minimize and maximize, but only minimize partially. I struggled more 
+            with the design than the code itself, as it wasn’t a very 
+            technically complex problem. I had to implement a minimize/maximize 
+            button that could meet a number of criteria. It had to be functional 
+            on all platforms, unobtrusive, and always available to the user. 
+        </p>
+        <h2>Styling Choices</h2>
+        <p>
+            Once I designed a button that fulfilled these criteria and organized 
+            the HTML for the rest of the Read a Story page, I moved on to 
+            styling the page and laying the groundwork for how the remainder of 
+            the pages were to be styled. I tried my best to abide by the guiding 
+            design conventions laid out and stay faithful to the storyboard and 
+            the images we used for reference. Even though my original role was 
+            lead developer, I feel that my group members went above and beyond 
+            in the programming aspects of the project. They handled the feature 
+            page, Make a Story, and set up the domain for the site.
+        </p>
+    </section>
+    
+    <section class="sydney-choices">
+        <h1>Sydney Bertrand</h1>
+        <h2>Project Setup & Storyboard</h2>
+        <p>
+            I was the project manager for the group and was in charge of all 
+            the documentation and setting up the domain for the site. I also 
+            wrote the content for the most of the pages, and helped set up the 
+            design foundations for the site. Early in the project time line the 
+            group was focused on creating the rough framework for the site. 
+            During this process I created the storyboard and set up the CSS to 
+            prepare for the first usability tests. The storyboard was used 
+            throughout the development process to keep the content organized 
+            and the style guidelines that we referenced throughout were based 
+            on the general look of the storyboard along with the various 
+            reference images gathered.
+        </p>
+        <h2>Site Navigation</h2>
+        <p>
+            I also was in charge of designing the navigation for the site, and 
+            styled it for both mobile and desktop. Originally I planned on 
+            implementing a responsive navigation with the hamburger menu, but 
+            our nav implementation in the HTML and the styling already in 
+            place made this task fairly inconvenient. I designed the nav to 
+            be sticky on desktop without being distracting, and opted to use a 
+            stacked nav on mobile. I decided to go with a stacked mobile nav 
+            because the overall short page length and page quantity allowed for 
+            it to be implemented without the regular hang ups that it typically 
+            comes with on mobile. The added transition properties also 
+            complimented this design choice as well.
+        </p>
+    </section>
+    
+    <section class="aria-choices">
+        <h1>AriaRay Brown</h1>
+        <h2>Random “mad libs” story generator</h2>
+        <p>
+            The unique functionality of this site is ability to randomly produce 
+            three-sentence stories from a database of over 3,000 sentence 
+            possibilities taken from 10 freely accessed children’s stories. Once 
+            a random three-sentence story is generated, the user has the ability 
+            to enter a sentence or ending of of their own. The user can then 
+            rate, save and send their story to an email address they provide. 
+            User-generated stories are saved to a randomStories.csv file 
+            (without their email address, for privacy considerations). 
+        </p>
+        <h2>PHP functions in read-sentences-data.php</h2>
+        <p>
+            In order to randomly select and read three lines from our csv file 
+            of 3,124 sentences, and store the lines in variables, I created 
+            several steps in PHP that were implemented in 
+            read-sentences-data.php.
+        </p>
+        <h2>Story input and name validation</h2>
+        <p>
+            To allow the user to enter several punctuation marks typical to a 
+            sentence, I created a regular expression validation function to 
+            allow more than alphanumeric characters. We also added a validation 
+            function for names to allow names with special characters, hyphens, 
+            and periods.
+        </p>
+        <h2>Star-rating radio buttons</h2>
+        <p>
+            The Make a Story form features a star rating functionality 
+            implemented with css.
+        </p>
+        <h2>Python scripts for text parsing</h2>
+        <p>
+            I created a python script to parse through a file of 98 children’s 
+            stories made public from the Facebook bAbl project and separate each 
+            story into a file with a single sentence on each line. We selected 5 
+            stories from this collection. I created a second python script to 
+            parse through any story and separate the sentences by new lines. 
+            This help to create a csv file of 10 stories, with a different 
+            sentence per line, that included title/author/publication date 
+            information. We don’t use python on our live site, but the scripts 
+            are included for reference. 
+        </p>
+        <h2>Design choices</h2>
+        <p>
+            The site colors and overall style were inspired by a California 
+            poppies image, which represented the cheerful, primary color 
+            palette we wanted to use to express the mood of our site, and to 
+            appeal to a young to older audience. The Make a Story page is 
+            designed to mimic a real paper story.
+        </p>
+    </section>
+</body>
+</html>
+
+
