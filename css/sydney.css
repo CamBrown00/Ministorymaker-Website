@@ -73,8 +73,10 @@ body header {
 }
 
 header h1 a {
+    color: #2b9cba;
     font-family: Poppins;
     font-size: 5em;
+    font-weight: bold;
     transition: color, .2s;
 }
 

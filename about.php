@@ -7,17 +7,21 @@
         <h2>How to Use</h2>
         <p>
             Using the site is simple!<br>
-            If you want to make a story,
+            If you want to make a story:
         </p>
         <ul>
             <li>
-                Click on the Make a Story button
+                Click on the Make a Story button to generate a random story.
             </li>
             <li>
-                Add a sentence of your own
+                Finish the story with an ending of your own.
             </li>
             <li>
                 Submit the story!
+            </li>
+            <li>
+                There are 30,488,290,624 (3,124 sentences ^ 3) possible random stories 
+                to make at every click of the make-a-story button!
             </li>
         </ul>
     </section>
@@ -50,7 +54,7 @@
         <h3>AriaRay</h3>
         <img class="bioImg" alt="" src="images/ariarayBio.png">
         <p class="bio">
-            I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+            I’m a senior at the University of Vermont who has enjoyed dabbling in the artfully logical arts of linguistics, computer science, and French. My non-web interests include fresh fruit, world cultures, math puns, plant-based baking, art-making, and running/dancing in the sun.
         </p>
     </section>
     <section>
