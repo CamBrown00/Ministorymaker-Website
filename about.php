@@ -11,10 +11,10 @@
         </p>
         <ul>
             <li>
-                Click on the Make a Story button
+                Click on the Make a Story button to generate a random story.
             </li>
             <li>
-                Add a sentence of your own
+                Finish the story with an ending of your own.
             </li>
             <li>
                 Submit the story!
@@ -50,7 +50,7 @@
         <h3>AriaRay</h3>
         <img class="bioImg" alt="" src="images/ariarayBio.png">
         <p class="bio">
-            I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
+            I’m a senior at the University of Vermont who has enjoyed dabbling in the artfully logical arts of linguistics, computer science, and French. My non-web interests include fresh fruit, world cultures, math puns, plant-based baking, art-making, and running/dancing in the sun.
         </p>
     </section>
     <section>
