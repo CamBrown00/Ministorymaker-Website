@@ -218,7 +218,8 @@
 .devBios section{
     display: inline-block;
     margin: 1%;
-    width: 28%;
+    width: 31.3%;
+    float: left;
 }
 
 #about .devBios h2{
