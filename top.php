@@ -20,6 +20,7 @@ error_reporting(E_ALL);
         <meta name="description" content="This site is dedicated to presenting classic children's stories in fun and interesting ways!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.png">
         <link rel="stylesheet" href="css/flexslider.css" type="text/css">
         <link rel="stylesheet" href="css/outline.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/custom.css" type="text/css" media="screen">
@@ -80,7 +81,15 @@ print PHP_EOL . '<!-- finished including libraries -->' . PHP_EOL;
 
 // Give each body tag a unique id. Include the header and nav.
 print '<body id="' . $path_parts['filename'] . '">';
-   
+ 
+//// Add script so that Make a Story page reloads to top of page
+//if ($path_parts['filename'] == 'makeastory') {print 
+//    '<script>
+//        $(document).ready(function(){
+//        $(this).scrollTop(0);
+//        });
+//    </script>';}
+    
 include('header.php');
 print PHP_EOL;
 

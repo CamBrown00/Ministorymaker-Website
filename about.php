@@ -48,7 +48,7 @@
     </section>
     <section>
         <h3>AriaRay</h3>
-        <img class="bioImg" alt="" src="images/ariaBio.png">
+        <img class="bioImg" alt="" src="images/ariarayBio.png">
         <p class="bio">
             I’m a Computer Science student at the University of Vermont. My personal interests include coding games, making music, and playing video games. I worked on the Read-a-Story and About pages, and helped work on the style of the site.
         </p>
