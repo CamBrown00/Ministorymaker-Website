@@ -225,7 +225,7 @@ if (isset($_POST["btnSaveStory"])) {
         $message .= '</div>';
         
         // append star rating to message
-        $message .= '<p>Rating = ' . htmlentities($value, ENT_QUOTES, "UTF-8") . 'stars </p>';
+        $message .= '<p>Rating = ' . htmlentities($rating, ENT_QUOTES, "UTF-8") . ' stars </p>';
         
         // append author as name or Anonymous
         if (!empty($name)){
