@@ -7,7 +7,7 @@
         <h2>How to Use</h2>
         <p>
             Using the site is simple!<br>
-            If you want to make a story,
+            If you want to make a story:
         </p>
         <ul>
             <li>
