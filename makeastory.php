@@ -134,7 +134,10 @@ if (isset($_POST["btnSaveStory"])) {
     
     if ($yourSentence == "") { // first check if empty
         $errorMsg[] = "Finish the story with your own sentence!";
-        $yourSentence = true;
+        $yourSentenceERROR = true;
+    } elseif (strlen($yourSentence) == 1) { // check that sentences are longer than one character
+        $errorMsg[] = "Finish the story with more than one character.";
+        $yourSentenceERROR = true; 
     } elseif (!verifySentence($yourSentence)) { // then check that it only contains accepted characters
         $errorMsg[] = "Only use letters and the following punctuation in your sentence: [' - . ! ? , \"]";
         $yourSentenceERROR = true;
@@ -211,18 +214,16 @@ if (isset($_POST["btnSaveStory"])) {
        
         // build a message to display on the screen in section 3a and to mail
         // to the person filling out the form (section 2g).
-        $message = '<h2 class="">Your random mini story is complete!</h2>'
+        $messageHeading = '<h2 class="">Your random mini story is complete!</h2>'
                 . '<h4>Here is the story you made: </h4>';
         
         // append story sentences to message
-        $message .= '<div class="storyContainer">';
-        $message .= '<p>' . $sentence0 . '</p>'
-                . '<p>' . $sentence1 . '</p>'
-                . '<p>' . $sentence2 . '</p>';
+        $message = '<article class="storyContainer">';
+        $message .= '<p>' . $sentence0 . ' ' . $sentence1 . ' ' . $sentence2 . ' ';
         
         // append your sentence to message
-        $message .= '<p>' . htmlentities($yourSentence, ENT_QUOTES, "UTF-8") . '</p>';
-        $message .= '</div>';
+        $message .= htmlentities($yourSentence, ENT_QUOTES, "UTF-8") . '</p>';
+        $message .= '</article>';
         
         // append star rating to message
         $message .= '<p>Rating = ' . htmlentities($rating, ENT_QUOTES, "UTF-8") . ' stars </p>';
@@ -247,12 +248,14 @@ if (isset($_POST["btnSaveStory"])) {
         $cc = '';
         $bcc = '';
         
-        $from = 'Mini Story Maker <abrown72@uvm.edu>';
+        $from = 'Mini Story Maker <ministorymaker1@gmail.com>';
         
         // subject of mail should make sense to your form
         $subject =  "Your Mini Story";
         
-        $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
+        $fullMessage = $messageHeading . $message;
+        
+        $mailed = sendMail($to, $cc, $bcc, $from, $subject, $fullMessage);
     
     } // end form is valid
         
@@ -275,7 +278,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     // Display form initially or if submitted unsucessfully 
 
     if (isset($_POST["btnSaveStory"]) AND empty($errorMsg)) { // closing of if marked with: end body submit 
-       print '<h2>What a random, mini story!</h2>';
+       print '<h1>What a random, mini story!</h1>';
 
        print '<p>Your completed story has ';
 
@@ -302,7 +305,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
 
         if ($errorMsg) {
             print '<div id="errors">' . PHP_EOL;
-            print '<h2>Oops! Can\'t save yet. Please re-enter the following: </h2>' . PHP_EOL;
+            print '<h2>Oops! Can\'t save yet. Let\'s fix these mistakes first: </h2>' . PHP_EOL;
             print '<ol>' . PHP_EOL;
 
             foreach ($errorMsg as $err) {
@@ -440,16 +443,18 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
                 <input class="button" id="btnSaveStory" name="btnSaveStory" tabindex="900" type="submit" value="Save and Send Story">
         </fieldset> <!-- end buttons -->
 
-    </form>   
+    </form> 
+       
+    <p id="nextStory">
+           <a href="makeastory.php">&#10145;</a>
+    </p>
 <?php
    } // ends body submit
 ?>
     </section>
        
        
-       <p id="nextStory">
-           <a href="makeastory.php">&#10145;</a>
-       </p>
+       
     
     </article>
 </main>
