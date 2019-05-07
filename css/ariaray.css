@@ -9,6 +9,38 @@ input#btnSaveStory {
     font-size: 1.25em;
 }
 
+/* Style form errors */
+
+#makeastory #errors {
+    margin: 1em auto;
+    color: #feedba;
+}
+
+#makeastory #errors h2 {
+    font-size: .75em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 auto .5em;
+    width: 95%;
+}
+
+#makeastory #errors ol {
+    margin: .25em auto;
+    width: 85%;   
+}
+
+#makeastory #errors ol li {
+    list-style-type: disc;
+    margin: .1em auto;
+}
+
+#makeastory textarea.mistake {
+   border: 3px solid;
+} 
+#makeastory textarea.mistake, #makeastory .contact input.mistake {
+   border-color: #923b5a;
+} /* end form errors css */
+
 fieldset.radio legend {
     margin: .5em auto;
 }
@@ -61,6 +93,7 @@ fieldset.radio legend {
     background: none;
     border: none;
     border-bottom: 3px solid #0d6177;
+    border-radius: 3px;
     color: #ffe19f;
     font-family: inherit;
     font-size: .9em;
@@ -94,7 +127,7 @@ fieldset.radio legend {
     padding: 1em;
 }
 
-#makeastory main article {
+#makeastory main > article {
     font-size: 1.5em;
 }
 
@@ -105,12 +138,21 @@ fieldset.radio legend {
 }
 
 #makeastory main h1 a {
+    color: #4e66c4;
     background: #feedba;
     border: solid 4px #ffbc79;
     border-radius: 4px;
-    box-shadow: 1px 1px 2px rgba(181, 181, 181, 0.86);
     padding: 4px;
     text-decoration: none;
+}
+#makeastory main h1 a:visited {
+    color: #4e66c4;
+}
+#makeastory main h1 a:hover {
+    color: #ffbc79;
+}
+#makeastory main h1 a:active {
+    background: #ffe19fab;
 }
     
 #makeastory main h1 ~ p {
@@ -127,12 +169,12 @@ fieldset.radio legend {
     width: 75%;
 }
 
-#randomStory > p:first-child {
+#randomStory > p:first-child, .storyContainer > p:first-child:first-line {
     line-height: initial;
 }
 
 #randomStory > p:first-child:first-letter {
-    font-size: 2em;
+    font-size: 2em; 
     font-family: serif;
 }
 
@@ -161,7 +203,7 @@ fieldset.radio legend {
 p#nextStory {
     float: right;
     display: inline-block;
-    width: 85%;
+    width: 75%;
     top: 25em;
     position: absolute;
     text-align: right;
@@ -179,7 +221,7 @@ p#nextStory a:link {
    
 }
 p#nextStory a:visited {   
-    color: white;
+    color: #ffe19f;
 }
 p#nextStory a:hover {   
     text-shadow: 2px 2px 4px #0d6177;
@@ -237,20 +279,45 @@ label.radio-field {
 .radioWrapper:hover .radio-field {
   
 }
+/* end star rating css */
 
+
+/**************************/
+/* SUBMITTED STORY LAYOUT */
+/**************************/
+.storyContainer {
+    margin: 1em auto 1.5em;
+    color: #ffe19d;
+}
+
+.storyContainer ~ p {
+    text-align: center;
+}
+
+.storyContainer p:first-child:first-letter {
+    font-family: serif;
+    font-size: 3em;
+    padding-left: .5em;
+}
 
 /***********************************/
-/* Media Queries Responsive Layout */
+/* RESPONSIVE LAYOUT MEDIA QUERIES */
 /***********************************/
 
 @media screen and (max-width: 600px){
     
-    p#nextStory {
-        top: 47em;
-    }
+    #errors ol {width: 90%;}
     
-    p#nextStory a {
-        font-size: 3em;
-    }
+    #makeastory form {width: 95%;}
+    
+    #makeastory main {font-size: .75em;}
+    
+    #makeastory section#makeTheStory {width: 100%;}
+    
+    #makeastory #randomStory {width: 95%;}
+    
+    p#nextStory {top: 47em;}
+    
+    p#nextStory a {font-size: 3em;}
     
 }
