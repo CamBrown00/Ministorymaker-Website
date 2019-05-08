@@ -294,7 +294,10 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     } 
     else {
         print '<h1 class=""><a href="makeastory.php">Make a story!</a></h1>';
-        print '<p class="">A story has been randomly generated for you! Press the arrow <span class="nextStory">&#10145;</span> below to generate a new story. Finish the random story with your own ending. To save your story: enter your name and email, and press "Send Story" to receive a copy.</p>';
+        print '<p class="">A story has been randomly generated for you! '
+                . 'Press the arrow <span class="nextStoryContainer"><a href="makeastory.php" class="nextStory">></a></span> '
+                . 'to generate a new story. Finish the random story with your own ending. '
+                . 'To save your story: enter your name and email. Then press <span class="saveStory">"Save and Send Story"</span> to receive a copy.</p>';
         //print '<p class="">Finish the random story with your own ending.</p>';
         //print '<p class="">To save your story: enter your name and email, and press "Send Story" to receive a copy.</p>';
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -446,7 +449,7 @@ print PHP_EOL . '<!-- SECTION: 3 Display Form -->' . PHP_EOL;
     </form> 
        
     <p id="nextStory">
-           <a href="makeastory.php">&#10145;</a>
+           <a href="makeastory.php">></a>
     </p>
 <?php
    } // ends body submit
