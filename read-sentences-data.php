@@ -1,6 +1,6 @@
 <?php
 // ****************** Open sentences data ******************
-$debug = false;
+$debug = true;
 if (isset($_GET["debug"])) {
     $debug = true;
 }

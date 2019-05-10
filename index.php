@@ -6,8 +6,8 @@
             <h1 class="introHeading">"What is Mini Story Maker?"</h1>
             <p class="aboutText">
                 We're a web site devoted to bringing an interactive aspect to reading
-                classic children's stories. We use a random story generator that 
-                takes sentences from classic children stories and let's you write the ending.
+                classic children's stories. We use a random-story generator that 
+                takes sentences from classic children's stories and lets you write the ending.
                 If you're also interested in reading the 
                 original stories themselves, we've got that covered too!
             </p>
