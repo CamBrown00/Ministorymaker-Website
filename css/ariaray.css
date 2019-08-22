@@ -79,7 +79,7 @@ fieldset.radio legend {
     font-style: italic;
 }
 
-#makeastory input[type=submit] {
+#makeastory input[type=submit], .saveStory {
     background: #4e66c4 none repeat scroll 0 0;
     border: medium none;
     border-radius: 4px;
@@ -128,7 +128,7 @@ fieldset.radio legend {
 }
 
 #makeastory main > article {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 #makeastory main h1 {
@@ -156,8 +156,8 @@ fieldset.radio legend {
 }
     
 #makeastory main h1 ~ p {
-    font-size: .75em;
-    margin: 1em .5em .0.5em;
+    font-size: .85em;
+    margin: 1.5em .5em .0.5em;
 }
 
 #makeastory main h1 ~ p::first-letter {
@@ -192,7 +192,11 @@ fieldset.radio legend {
 
 #makeastory section#howToUse {
     margin: 0 auto;
-    width: 65%;
+    width: 55%;
+}
+
+#makeastory section#howToUse p {
+    line-height: 1.5;
 }
 
 #makeastory section#makeTheStory {
@@ -200,11 +204,15 @@ fieldset.radio legend {
     width: 75%;
 }
 
+#makeTheStory p {
+    line-height: 1.75;
+}
+
 p#nextStory {
     float: right;
     display: inline-block;
-    width: 75%;
-    top: 25em;
+    width: 70%;
+    top: 27em;
     position: absolute;
     text-align: right;
 }
@@ -213,9 +221,10 @@ p#nextStory a {
    font-size: 4em;
    text-decoration: none;
 }
-p#nextStory a, span.nextStory {
+p#nextStory a, .nextStory {
    color:  #ffe19f;
-   text-shadow: 2px 2px 18px #0d6177;
+   text-decoration: none;
+   text-shadow: 2px 2px 18px #0d6177; 
 }
 p#nextStory a:link {
    
@@ -228,6 +237,12 @@ p#nextStory a:hover {
 }
 p#nextStory a:active { 
     color: #ffe19fab;
+}
+
+p span.saveStory {
+    cursor: none;
+    box-shadow: none;
+    padding: 0;
 }
 
 textarea#txtYourSentence {
@@ -304,6 +319,18 @@ label.radio-field {
 /* RESPONSIVE LAYOUT MEDIA QUERIES */
 /***********************************/
 
+@media screen and (max-width: 660px){
+    p#nextStory {
+        top: 35em;
+        width: 75%;}
+}
+
+@media screen and (max-width: 490px){
+    p#nextStory {
+        top: 42em; 
+        width: 85%;}
+}
+
 @media screen and (max-width: 600px){
     
     #errors ol {width: 90%;}
@@ -314,9 +341,9 @@ label.radio-field {
     
     #makeastory section#makeTheStory {width: 100%;}
     
-    #makeastory #randomStory {width: 95%;}
+    #makeastory section#howToUse {width: 98%;}
     
-    p#nextStory {top: 47em;}
+    #makeastory #randomStory {width: 95%;}
     
     p#nextStory a {font-size: 3em;}
     
